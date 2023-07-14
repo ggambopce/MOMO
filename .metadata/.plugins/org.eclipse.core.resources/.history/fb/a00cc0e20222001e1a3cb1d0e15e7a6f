@@ -1,0 +1,15 @@
+package com.KoreaIT.MOMO;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import lombok.Data;
+
+@SpringBootApplication
+public class MomoApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(MomoApplication.class, args);
+	}
+
+}
