@@ -9,7 +9,9 @@ import com.KoreaIT.MOMO.vo.Article;
 @Mapper
 public interface ArticleRepository {
 
-	public Article writeArticle(String title, String body);
+	public void writeArticle(String title, String body);
+
+	public int getLastInsertId();
 
 	public Article getArticleById(int id);
 
