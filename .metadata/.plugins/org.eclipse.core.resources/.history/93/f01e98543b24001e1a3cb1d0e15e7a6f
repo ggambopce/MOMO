@@ -1,0 +1,5 @@
+package com.KoreaIT.MOMO.repository;
+
+public class MemberRepository {
+
+}
