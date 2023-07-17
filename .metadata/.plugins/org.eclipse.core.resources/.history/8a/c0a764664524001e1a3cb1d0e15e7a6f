@@ -41,14 +41,6 @@ public class MemberService {
 		return memberRepository.getLastInsertId();
 	}
 
-	private Member getMemberByNameAndEmail(String name, String email) {
-		return memberRepository.getMemberByNameAndEmail(name, email);
-	}
-
-	private Member getMemberByNickname(String nickname) {
-		return memberRepository.getMemberByNickname(nickname);
-	}
-	
 	private Member getMemberByLoginId(String loginId) {
 		return memberRepository.getMemberByLoginId(loginId);
 	}
