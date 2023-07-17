@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Select;
 import com.KoreaIT.MOMO.vo.Member;
 
 @Mapper
-public class MemberRepository {
+public interface MemberRepository {
 
 	@Insert("""
 			INSERT INTO `member`
@@ -31,5 +31,12 @@ public class MemberRepository {
 				WHERE id = #{id}
 			""")
 	public Member getMemberById(int id);
+	
+	@Select("""
+			SELECT *
+				FROM `member`
+				WHERE loginId = #{loginId}
+			""")
+	public Member getMemberByLoginId(String loginId);
 	
 }
