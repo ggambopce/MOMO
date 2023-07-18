@@ -2,9 +2,9 @@ server:
   port: 8082
 spring:
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/SB_AM
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://127.0.0.1:3306/SB_AM
     username: root
-    password: 
+    password: 1234
 mybatis:
   type-aliases-package: com.KoreaIT.MOMO.vo

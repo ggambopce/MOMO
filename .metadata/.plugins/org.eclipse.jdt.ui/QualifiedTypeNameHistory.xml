@@ -14,11 +14,13 @@
     <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Select"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
-    <fullyQualifiedTypeName name="lombok.Data"/>
     <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
     <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
     <fullyQualifiedTypeName name="com.KoreaIT.MOMO.repository.MemberRepository"/>
     <fullyQualifiedTypeName name="com.KoreaIT.MOMO.service.MemberService"/>
-    <fullyQualifiedTypeName name="com.KoreaIT.MOMO.vo.Member"/>
+    <fullyQualifiedTypeName name="lombok.Data"/>
+    <fullyQualifiedTypeName name="com.KoreaIT.MOMO.vo.ResultData"/>
     <fullyQualifiedTypeName name="com.KoreaIT.MOMO.util.Util"/>
+    <fullyQualifiedTypeName name="com.KoreaIT.MOMO.vo.Member"/>
+    <fullyQualifiedTypeName name="jakarta.servlet.http.HttpSession"/>
 </qualifiedTypeNameHistroy>

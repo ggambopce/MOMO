@@ -2,6 +2,8 @@ package com.KoreaIT.MOMO.controller;
 
 import java.util.List;
 
+import jakarta.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +27,11 @@ public class UsrArticleController {
 	//액션 메서드 
 	@RequestMapping("/usr/article/doAdd")
 	@ResponseBody
-	public ResultData<Article> doAdd(String title, String body) {
+	public ResultData<Article> doAdd(HttpSession httpSession, String title, String body) {
+
+		if (httpSession.getAttribute("loginedMemberId") == null) {
+			return ResultData.from("F-A", "로그인 후 이용해주세요");
+		}
 
 		if (Util.empty(title)) {
 			return ResultData.from("F-1", "제목을 입력해주세요");
@@ -35,7 +41,7 @@ public class UsrArticleController {
 			return ResultData.from("F-2", "내용을 입력해주세요");
 		}
 
-		articleService.writeArticle(title, body);
+		articleService.writeArticle((int) httpSession.getAttribute("loginedMemberId"), title, body);
 
 		int id = articleService.getLastInsertId();
 
@@ -64,7 +70,11 @@ public class UsrArticleController {
 	
 	@RequestMapping("/usr/article/doModify")
 	@ResponseBody
-	public ResultData doModify(int id, String title, String body) {
+	public ResultData doModify(HttpSession httpSession, int id, String title, String body) {
+
+		if (httpSession.getAttribute("loginedMemberId") == null) {
+			return ResultData.from("F-A", "로그인 후 이용해주세요");
+		}
 
 		Article article = articleService.getArticleById(id);
 
@@ -79,7 +89,11 @@ public class UsrArticleController {
 	
 	@RequestMapping("/usr/article/doDelete")
 	@ResponseBody
-	public ResultData doDelete(int id) {
+	public ResultData doDelete(HttpSession httpSession, int id) {
+
+		if (httpSession.getAttribute("loginedMemberId") == null) {
+			return ResultData.from("F-A", "로그인 후 이용해주세요");
+		}
 
 		Article article = articleService.getArticleById(id);
 

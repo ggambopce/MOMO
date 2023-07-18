@@ -7,7 +7,7 @@ public class ResultData<DT> {
 
 	private String resultCode;
 	private String msg;
-private DT data1;
+	private DT data1;
 	
 	public static <DT> ResultData<DT> from(String resultCode, String msg) {
 		return from(resultCode, msg, null);
