@@ -9,10 +9,10 @@
 -->
 <html>
 	<head>
-		<title>Editorial by HTML5 UP</title>
+		<title>모임의 모든것:모모</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="resource/assets/css/main.css" />
+		<link rel="stylesheet" href="/resources/assets/css/main.css" />
 	</head>
 	<body class="is-preload">
 
@@ -25,7 +25,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="index.html" class="logo"><strong>Editorial</strong> by HTML5 UP</a>
+									<a href="index.html" class="logo"><strong>MOMO</strong> : 모임의 모든 것</a>
 									<ul class="icons">
 										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
@@ -39,9 +39,9 @@
 								<section id="banner">
 									<div class="content">
 										<header>
-											<h1>Hi, I’m Editorial<br />
-											by HTML5 UP</h1>
-											<p>A free and fully responsive site template</p>
+											<h1> 안녀엉~<br />
+											드디어 성공했어용ㅎㅎ 화면 바꾸기 ㅎ</h1>
+											<p>재미난 하루보내고 너무  심각해지지 않기!</p>
 										</header>
 										<p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. Pellentesque sapien ac quam. Lorem ipsum dolor sit nullam.</p>
 										<ul class="actions">
@@ -245,11 +245,11 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script src="/resources/assets/js/jquery.min.js"></script>
+			<script src="/resources/assets/js/browser.min.js"></script>
+			<script src="/resources/assets/js/breakpoints.min.js"></script>
+			<script src="/resources/assets/js/util.js"></script>
+			<script src="/resources/assets/js/main.js"></script>
 
 	</body>
 </html>
