@@ -45,7 +45,7 @@
 										</header>
 										<p>원데이모임 모모 </p>
 										<ul class="actions">
-											<li><a href="#" class="button big">회원가입</a></li>
+											<li><a href="login" class="button big">회원가입</a></li>
 										</ul>
 										<ul class="actions">
 											<li><a href="#" class="button big">로그인</a></li>
@@ -188,9 +188,9 @@
 										<h2>모모</h2>
 									</header>
 									<ul>
-										<li><a href="index.html">홈</a></li>
+										<li><a href="home">홈</a></li>
 										<li><a href="generic.html">지난모임</a></li>
-										<li><a href="elements.html">예정모임</a></li>
+										<li><a href="elements">예정모임</a></li>
 										<li>
 											<span class="opener">구독모임</span>
 											<ul>

@@ -95,7 +95,7 @@
 						</tr>
 						<tr>
 							<th scope="row">전화번호<span class="es">필수 입력</span></th>
-							<td><input type="text" name="name" placeholder="이름" maxlength="10" /></td>
+							<td><input type="text" name="cellphoneNum" placeholder="전화번호" maxlength="11" /></td>
 						</tr>
 					</tbody>
 				</table>

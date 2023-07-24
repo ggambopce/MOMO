@@ -11,4 +11,15 @@ public class WebController {
 		return "usr/home/home";
 	}
 	
+	@RequestMapping("/usr/elements")
+	public String showElements() {
+		return "usr/common/elements";
+	}
+	
+	@RequestMapping("/usr/login")
+	public String showLogin() {
+		return "usr/member/login";
+	}
+	
 }
+
