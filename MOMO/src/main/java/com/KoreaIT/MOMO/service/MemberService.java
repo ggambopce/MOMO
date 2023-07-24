@@ -18,7 +18,7 @@ public class MemberService {
 		this.memberRepository = memberRepository;
 	}
 
-	public ResultData<Integer> doJoin(String loginId, String loginPw, String name, String nickname, String cellphoneNum, String email) {
+	public ResultData<Integer> doJoin(String loginId, String loginPw, String name, String nickname, String gender, String birthday, String cellphoneNum, String email) {
 
 		Member existsMember = getMemberByLoginId(loginId);
 
@@ -38,7 +38,7 @@ public class MemberService {
 			return ResultData.from("F-9", Util.f("이미 사용중인 이름(%s)과 이메일(%s) 입니다", name, email));
 		}
 		
-		memberRepository.doJoin(loginId, loginPw, name, nickname, cellphoneNum, email);
+		memberRepository.doJoin(loginId, loginPw, name, nickname, gender, birthday, cellphoneNum, email);
 		
 		return ResultData.from("S-1", Util.f("%s회원님이 가입되었습니다", loginId), "id", memberRepository.getLastInsertId());
 	}
@@ -59,4 +59,11 @@ public class MemberService {
 		return memberRepository.getMemberById(id);
 	}
 	
+	public Member getMemberByGender(String gender) {
+		return memberRepository.getMemberByGender(gender);
+	}
+	
+	public Member getMemberByBirthday(String birthday) {
+		return memberRepository.getMemberByBirthday(birthday);
+	}
 }

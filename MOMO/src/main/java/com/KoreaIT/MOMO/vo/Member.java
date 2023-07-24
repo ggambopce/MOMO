@@ -16,6 +16,8 @@ public class Member {
 	private int authLevel;
 	private String name;
 	private String nickname;
+	private String brithday;
+	private String gender;
 	private String cellphoneNum;
 	private String email;
 	private int delStatus;
