@@ -6,6 +6,8 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+import com.KoreaIT.MOMO.vo.Rq;
+
 @Component
 public class BeforeActionInterceptor implements HandlerInterceptor {
 
@@ -13,6 +15,9 @@ public class BeforeActionInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 
+		Rq rq = new Rq(request, response);
+		request.setAttribute("Rq", rq);
+		
 		return HandlerInterceptor.super.preHandle(request, response, handler);
 	}
 	
