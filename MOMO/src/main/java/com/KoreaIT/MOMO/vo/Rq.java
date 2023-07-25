@@ -13,13 +13,14 @@ public class Rq {
 
 	@Getter
 	private int loginedMemberId;
+	private HttpServletRequest req;
 	private HttpServletResponse resp;
 	private HttpSession httpSession;
 	
 	public Rq(HttpServletRequest req, HttpServletResponse resp) {
-
+		
+		this.req = req;
 		this.resp = resp;
-
 		this.httpSession = req.getSession();
 
 		int loginedMemberId = 0;
@@ -51,6 +52,14 @@ public class Rq {
 
 	public void logout() {
 		httpSession.removeAttribute("loginedMemberId");
+	}
+	
+	public String jsReturnOnView(String msg, boolean isHistoryBack) {
+
+		req.setAttribute("msg", msg);
+		req.setAttribute("isHistoryBack", isHistoryBack);
+
+		return "usr/common/js";
 	}
 	
 }
