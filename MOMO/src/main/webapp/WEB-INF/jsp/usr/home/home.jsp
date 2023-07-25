@@ -25,7 +25,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="index.html" class="logo"><strong>MOMO</strong> : 모임의 모든 것</a>
+									<a href="home" class="logo"><strong>MOMO</strong> : 모임의 모든 것</a>
 									<ul class="icons">
 										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
@@ -45,10 +45,10 @@
 										</header>
 										<p>원데이모임 모모 </p>
 										<ul class="actions">
-											<li><a href="login" class="button big">회원가입</a></li>
+											<li><a href="signup" class="button big">회원가입</a></li>
 										</ul>
 										<ul class="actions">
-											<li><a href="#" class="button big">로그인</a></li>
+											<li><a href="login" class="button big">로그인</a></li>
 										</ul>
 									</div>
 									<span class="image object">

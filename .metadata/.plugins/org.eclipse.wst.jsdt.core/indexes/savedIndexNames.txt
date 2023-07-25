@@ -9,4 +9,3 @@ INDEX VERSION 1.4+/Users/gangjinho/Desktop/git_commit_MOMO/.metadata/.plugins/or
 1528979880.index
 3441775788.index
 3042188145.index
-2201606405.index
