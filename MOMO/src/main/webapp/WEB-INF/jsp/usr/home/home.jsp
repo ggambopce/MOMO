@@ -34,7 +34,12 @@
 										<li><a href="#" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
 									</ul>
 								</header>
-
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
 							<!-- Banner -->
 								<section id="banner">
 									<div class="content">
@@ -45,7 +50,7 @@
 										</header>
 										<p>원데이모임 모모 </p>
 										<ul class="actions">
-											<li><a href="signup" class="button big">회원가입</a></li>
+											<li><a href="join" class="button big">회원가입</a></li>
 										</ul>
 										<ul class="actions">
 											<li><a href="login" class="button big">로그인</a></li>
@@ -174,13 +179,6 @@
 				<!-- Sidebar -->
 					<div id="sidebar">
 						<div class="inner">
-
-							<!-- Search -->
-								<section id="search" class="alt">
-									<form method="post" action="#">
-										<input type="text" name="query" id="query" placeholder="Search" />
-									</form>
-								</section>
 
 							<!-- Menu -->
 								<nav id="menu">

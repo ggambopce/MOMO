@@ -26,6 +26,12 @@ public class UsrMemberController {
 	}
 
 	// 액션 메서드
+	
+	@RequestMapping("/usr/member/join")
+	public String join() {
+		return "usr/member/join";
+	}
+	
 	@RequestMapping("/usr/member/doJoin")
 	@ResponseBody
 	public ResultData<Member> doJoin(HttpServletRequest req, String loginId, String loginPw, String name, String nickname, String gender, String birthday, String cellphoneNum, String email) {
@@ -102,7 +108,7 @@ public class UsrMemberController {
 
 		rq.login(member);
 
-		return Util.jsReplace(Util.f("%s 회원님 환영합니다~!", member.getNickname()), "/");
+		return Util.jsReplace(Util.f("%s 회원님 환영합니다~!", member.getNickname()), "../usr/home");
 	}
 
 	@RequestMapping("/usr/member/doLogout")

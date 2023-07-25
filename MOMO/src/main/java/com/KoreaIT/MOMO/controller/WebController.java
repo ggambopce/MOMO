@@ -22,7 +22,7 @@ public class WebController {
 	}
 	@RequestMapping("/usr/signup")
 	public String showSignup() {
-		return "usr/member/signup";
+		return "usr/member/join";
 	}
 	
 }
