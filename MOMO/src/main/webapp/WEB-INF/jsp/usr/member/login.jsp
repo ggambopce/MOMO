@@ -21,7 +21,7 @@
 		<div id="login_box">
 			<div class="login_con">
 				<div class="login_tit">
-					<h2>게시판 프로젝트</h2>
+					<h2>모모 : 모임의 모든 것 </h2>
 					<p>LOG<i>IN</i></p>
 				</div>
 
@@ -73,6 +73,10 @@
 						<tr>
 							<th scope="row">이름<span class="es">필수 입력</span></th>
 							<td><input type="text" name="name" placeholder="이름" maxlength="10" /></td>
+						</tr>
+						<tr>
+							<th scope="row">별명<span class="es">필수 입력</span></th>
+							<td><input type="text" name="nickname" placeholder="별명" maxlength="10" /></td>
 						</tr>
 						<tr>
 							<th scope="row">성별<span class="es">필수 입력</span></th>
