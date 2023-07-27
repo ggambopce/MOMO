@@ -20,7 +20,7 @@ public class WebController {
 	public String showLogin() {
 		return "usr/member/login";
 	}
-	@RequestMapping("/usr/signup")
+	@RequestMapping("/usr/join")
 	public String showSignup() {
 		return "usr/member/join";
 	}

@@ -20,8 +20,8 @@ public class ArticleService {
 		this.articleRepository = articleRepository;
 	}
 
-	public void writeArticle(int memberId, String title, String body) {
-		articleRepository.writeArticle(memberId, title, body);
+	public void writeArticle(int memberId, int boardId, String title, String body) {
+		articleRepository.writeArticle(memberId, boardId, title, body);
 	}
 
 	public int getLastInsertId() {
@@ -71,4 +71,9 @@ public class ArticleService {
 
 		article.setActorCanChangeData(actorCanChangeDataRd.isSuccess());
 	}
+	
+	public int getArticlesCnt(int boardId) {
+		return articleRepository.getArticlesCnt(boardId);
+	}
+	
 }
