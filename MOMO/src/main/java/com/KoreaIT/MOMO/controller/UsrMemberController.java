@@ -2,7 +2,6 @@ package com.KoreaIT.MOMO.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -13,16 +12,17 @@ import com.KoreaIT.MOMO.vo.ResultData;
 import com.KoreaIT.MOMO.vo.Rq;
 
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class UsrMemberController {
 
 	private MemberService memberService;
+	private Rq rq;
 
 	@Autowired
-	public UsrMemberController(MemberService memberService) {
+	public UsrMemberController(MemberService memberService, Rq rq) {
 		this.memberService = memberService;
+		this.rq = rq;
 	}
 
 	// 액션 메서드
@@ -34,9 +34,7 @@ public class UsrMemberController {
 	
 	@RequestMapping("/usr/member/doJoin")
 	@ResponseBody
-	public ResultData<Member> doJoin(HttpServletRequest req, String loginId, String loginPw, String name, String nickname, String gender, String birthday, String cellphoneNum, String email) {
-
-		Rq rq = (Rq) req.getAttribute("rq");
+	public ResultData<Member> doJoin(String loginId, String loginPw, String name, String nickname, String gender, String birthday,  String cellphoneNum, String email) {
 
 		if (rq.getLoginedMemberId() != 0) {
 			return ResultData.from("F-A", "로그아웃 후 이용해주세요");
@@ -82,9 +80,8 @@ public class UsrMemberController {
 	
 	@RequestMapping("/usr/member/doLogin")
 	@ResponseBody
-	public String doLogin(HttpServletRequest req, String loginId, String loginPw) {
+	public String doLogin(String loginId, String loginPw) {
 
-		Rq rq = (Rq) req.getAttribute("rq");
 		if (rq.getLoginedMemberId() != 0) {
 			return Util.jsHistoryBack("로그아웃 후 이용해주세요");
 		}
@@ -113,9 +110,7 @@ public class UsrMemberController {
 
 	@RequestMapping("/usr/member/doLogout")
 	@ResponseBody
-	public String doLogout(HttpServletRequest req) {
-
-		Rq rq = (Rq) req.getAttribute("rq");
+	public String doLogout() {
 
 		rq.logout();
 

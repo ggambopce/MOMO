@@ -24,6 +24,10 @@ public class WebController {
 	public String showSignup() {
 		return "usr/member/join";
 	}
+	@RequestMapping("/usr/domake")
+	public String showDomake() {
+		return "usr/member/mmaker";
+	}
 	
 }
 
