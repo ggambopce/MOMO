@@ -29,5 +29,10 @@ public class WebController {
 		return "usr/member/mmaker";
 	}
 	
+	@RequestMapping("/usr/list")
+	public String showList() {
+		return "usr/article/list";
+	}
+	
 }
 
