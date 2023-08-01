@@ -5,7 +5,7 @@
 <%@ include file="../common/header.jsp" %>
 	<section class="mt-8 text-xl">
 		<div class="container mx-auto px-3">
-			<form action="doJoin" method="POST">
+			<form action="/usr/member/doJoin" method="POST">
 				<div class="table-box-type-1">
 					<table>
 						<colgroup>
@@ -49,7 +49,7 @@
 								<td><input class="input input-bordered w-full max-w-xs" type="text" name="email" placeholder="이메일을 입력해주세요"/></td>
 							</tr>
 							<tr>
-								<td colspan="2"><button class="btn-text-link btn btn-active">회원가입</button></td>
+								<td colspan="2"><button class="btn-text-link btn btn-active" type="submit">회원가입</button></td>
 							</tr>
 						</tbody>
 					</table>
