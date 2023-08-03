@@ -13,8 +13,14 @@ public class Article {
 	private String regDate;
 	private String updateDate;
 	private int memberId;
-	private String title;
-	private String body;
+	private String moimMain;
+	private String moimBody;
 	private String writerName;
+	private String moimImg;
+	private String moimDatetime;
+	private String moimMemberCnt;
+	private String moimPrice;
+	private String moimAim;
+	private String moimCategory;
 	private boolean actorCanChangeData;
 }

@@ -5,7 +5,7 @@
 <%@ include file="../common/header.jsp" %>
 	<section class="mt-8 text-xl">
 		<div class="container mx-auto px-3">
-			<form action="member/doLogin" method="POST">
+			<form action="/usr/member/doLogin" method="POST">
 				<div class="table-box-type-1">
 					<table>
 						<colgroup>
@@ -27,6 +27,9 @@
 					</table>
 				</div>
 			</form>
+			<div class="btns">
+				<button class="btn-text-link" type="button" onclick="rq.logout();">로그아웃</button>
+			</div>
 			<div class="btns">
 				<button class="btn-text-link" type="button" onclick="history.back();">뒤로가기</button>
 			</div>

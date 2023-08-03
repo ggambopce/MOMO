@@ -105,7 +105,7 @@ public class UsrMemberController {
 
 		rq.login(member);
 
-		return Util.jsReplace(Util.f("%s 회원님 환영합니다~!", member.getNickname()), "../usr/home");
+		return Util.jsReplace(Util.f("%s 회원님 환영합니다~!", member.getNickname()), "../home");
 	}
 
 	@RequestMapping("/usr/member/doLogout")
@@ -114,7 +114,7 @@ public class UsrMemberController {
 
 		rq.logout();
 
-		return Util.jsReplace("정상적으로 로그아웃 되었습니다", "/");
+		return Util.jsReplace("정상적으로 로그아웃 되었습니다", "../home");
 	}
 	
 	

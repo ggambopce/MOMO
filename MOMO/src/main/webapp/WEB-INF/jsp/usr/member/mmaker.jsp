@@ -33,12 +33,16 @@
 								<td><input class="input input-bordered w-full max-w-xs" type="text" name="moimPlace" placeholder="모임장소를 입력해주세요"/></td>
 							</tr>
 							<tr>
+								<th>모임인원</th>
+								<td><input class="input input-bordered w-full max-w-xs" type="text" name="moimMemberCnt" placeholder="모임장소를 입력해주세요"/></td>
+							</tr>
+							<tr>
 								<th>모임비</th>
 								<td><input class="input input-bordered w-full max-w-xs" type="text" name="moimPrice" placeholder="모임비를 입력해주세요"/></td>
 							</tr>
 							<tr>
 								<th>모임목적</th>
-								<td><input class="input input-bordered w-full max-w-xs" type="text" name="moimTitle" placeholder="모임목적을 입력해주세요"/></td>
+								<td><input class="input input-bordered w-full max-w-xs" type="text" name="moimAim" placeholder="모임목적을 입력해주세요"/></td>
 							</tr>
 							<tr>
 								<th>관심사</th>
