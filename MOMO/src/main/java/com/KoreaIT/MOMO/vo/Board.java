@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Board {
 	private int id;
+	private int boardId;
 	private String regDate;
 	private String updateDate;
 	private String code;

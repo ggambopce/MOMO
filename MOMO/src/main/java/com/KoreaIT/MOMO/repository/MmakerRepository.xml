@@ -8,7 +8,6 @@
 		SET regDate = NOW(),
 		updateDate = NOW(),
 		memberId = #{memberId},
-		boardId = #{boardId},
 		`moimmain` = #{moimMain},
 		`moimbody` = #{moimBody},
 		`moimimg` = #{moimImg},
@@ -36,13 +35,7 @@
 		FROM mmaker
 		WHERE id = #{id}
 	</select>
-
-	<select id="getMmakersCnt" resultType="int">
-		SELECT COUNT(*)
-		FROM mmaker
-		WHERE boardId = #{boardId}
-	</select>
-
+	
 	<select id="getMmakers" resultType="Mmaker">
 		SELECT A.*, M.name AS writerName
 		FROM mmaker AS A
