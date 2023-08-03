@@ -1,5 +1,0 @@
-package com.KoreaIT.MOMO.interceptor;
-
-public class NeedLoginInterceptor {
-
-}

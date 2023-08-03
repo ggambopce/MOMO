@@ -263,7 +263,7 @@
 						</article>
 					</div>
 					<ul class="actions">
-						<li><a href="#" class="button">모임만들기버튼</a></li>
+						<li><a href="domake" class="button">모임만들기버튼</a></li>
 					</ul>
 				</section>
 

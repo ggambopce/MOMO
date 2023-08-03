@@ -31,7 +31,7 @@ public class WebController {
 	
 	@RequestMapping("/usr/list")
 	public String showList() {
-		return "usr/article/list";
+		return "usr/mmaker/list";
 	}
 	
 }
