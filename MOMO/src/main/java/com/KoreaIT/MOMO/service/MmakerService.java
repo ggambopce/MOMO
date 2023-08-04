@@ -32,11 +32,11 @@ public class MmakerService {
 		return mmakerRepository.getMmakerById(id);
 	}
 
-	public List<Mmaker> getMmakers(int boardId, int itemsInAPage, int page){
+	public List<Mmaker> getMmakers(int boardId, int itemsInAPage, int page, String moimMain, String moimBody, String moimImg, String moimDatetime, String moimPlace, String moimMemberCnt, String moimPrice){
 
 		int limitStart = (page - 1) * itemsInAPage;
 
-		return mmakerRepository.getMmakers(boardId, limitStart, itemsInAPage);
+		return mmakerRepository.getMmakers(boardId, limitStart, itemsInAPage, moimMain, moimBody, moimImg, moimDatetime, moimPlace, moimMemberCnt, moimPrice);
 	}
 
 	public void modifyMmaker(int id, String moimMain, String moimBody) {

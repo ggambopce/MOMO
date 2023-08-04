@@ -3,20 +3,35 @@ DROP DATABASE IF EXISTS SB_AM;
 CREATE DATABASE SB_AM;
 USE SB_AM;
 
-# article 테이블 생성
-CREATE TABLE article(
+# mmaker 테이블 생성
+CREATE TABLE mmaker(
 	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	regDate DATETIME NOT NULL,
 	updateDate DATETIME NOT NULL,
-	title VARCHAR(100) NOT NULL,
-	`body` TEXT NOT NULL
+	`moimmain` VARCHAR(100) NOT NULL COMMENT '모임제목',
+	`moimbody` TEXT NOT NULL COMMENT '모임내용',
+	`moimimg` VARCHAR(20) NOT NULL COMMENT '모임사진',
+	`moimplace` VARCHAR(20) NOT NULL COMMENT '모임장소',
+	`moimdatetime` VARCHAR(20) NOT NULL COMMENT '모임일시',
+	`moimmembercnt` VARCHAR(20) NOT NULL COMMENT '모임인원',
+	`moimprice` VARCHAR(20) NOT NULL COMMENT '모임비'	
 );
 
-ALTER TABLE article ADD COLUMN memberId INT UNSIGNED NOT NULL AFTER updateDate;
-ALTER TABLE article ADD COLUMN boardId INT UNSIGNED NOT NULL AFTER memberId;
-ALTER TABLE article ADD COLUMN hitCount INT UNSIGNED NOT NULL DEFAULT 0;
+`moimaim` VARCHAR(20) NOT NULL COMMENT '모임목적',
+	`moimcategory` VARCHAR(20) NOT NULL COMMENT '모임관심사'
 
-DESC article;
+ALTER TABLE mmaker ADD COLUMN memberId INT UNSIGNED NOT NULL AFTER updateDate;
+ALTER TABLE mmaker ADD COLUMN boardId INT UNSIGNED NOT NULL AFTER memberId;
+ALTER TABLE mmaker ADD COLUMN hitCount INT UNSIGNED NOT NULL DEFAULT 0;
+
+DESC mmaker;
+show columns from `mmaker`;
+
+DROP TABLE `mmaker`;
+DROP TABLE `member`;
+show columns from `member`;
+SELECT*FROM `member`;
+SELECT*FROM `mmaker`;
 
 # member 테이블 생성
 CREATE TABLE `member`(
@@ -28,7 +43,9 @@ CREATE TABLE `member`(
 	`authLevel` SMALLINT UNSIGNED NOT NULL DEFAULT 3 COMMENT '권한 레벨 (일반 = 3, 관리자 = 7)',
 	`name` VARCHAR(20) NOT NULL,
 	nickname VARCHAR(20) NOT NULL,
+	gender VARCHAR(2) NOT NULL,
 	cellphoneNum VARCHAR(20) NOT NULL,
+	birthday VARCHAR(10) NOT NULL,
 	email VARCHAR(50) NOT NULL,
 	delStatus TINYINT UNSIGNED NOT NULL DEFAULT 0 COMMENT '탈퇴여부 (탈퇴 전 = 0, 탈퇴 후 = 1)',
 	delDate DATETIME COMMENT '탈퇴 날짜'

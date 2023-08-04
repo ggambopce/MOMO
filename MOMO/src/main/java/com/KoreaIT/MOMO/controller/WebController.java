@@ -26,12 +26,17 @@ public class WebController {
 	}
 	@RequestMapping("/usr/domake")
 	public String showDomake() {
-		return "usr/member/mmaker";
+		return "usr/mmaker/mmaker";
 	}
 	
-	@RequestMapping("/usr/list")
-	public String showList() {
-		return "usr/mmaker/list";
+	@RequestMapping("/usr/lastmoim")
+	public String showLastMoim() {
+		return "usr/mmaker/lastmoim";
+	}
+	
+	@RequestMapping("/usr/scheduledmoim")
+	public String showScheduledMoim() {
+		return "usr/mmaker/scheduledmoim";
 	}
 	
 }

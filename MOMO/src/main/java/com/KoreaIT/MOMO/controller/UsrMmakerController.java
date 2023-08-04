@@ -86,9 +86,9 @@ public class UsrMmakerController {
 		return "usr/Mmaker/detail";
 	}
 	
-	@RequestMapping("/usr/Mmaker/list")
-	public String showList(Model model, @RequestParam(defaultValue = "1") int boardId,
-			@RequestParam(defaultValue = "1") int page) {
+	@RequestMapping("/usr/Mmaker/lastMoim")
+	public String showLastMoim(Model model, @RequestParam(defaultValue = "1") int boardId,
+			@RequestParam(defaultValue = "1") int page, String moimMain, String moimBody, String moimImg, String moimDatetime, String moimPlace, String moimMemberCnt, String moimPrice) {
 
 		if (page <= 0) {
 			return rq.jsReturnOnView("페이지번호가 올바르지 않습니다", true);
@@ -106,16 +106,63 @@ public class UsrMmakerController {
 
 		int pagesCount = (int) Math.ceil((double) MmakersCnt / itemsInAPage);
 
-		List<Mmaker> Mmakers = mmakerService.getMmakers(boardId, itemsInAPage, page);
+		List<Mmaker> Mmakers = mmakerService.getMmakers(boardId, itemsInAPage, page, moimMain, moimBody, moimImg, moimDatetime, moimPlace, moimMemberCnt, moimPrice);
 
 		model.addAttribute("pagesCount", pagesCount);
 		model.addAttribute("page", page);
 		model.addAttribute("MmakersCnt", MmakersCnt);
 		model.addAttribute("Mmakers", Mmakers);
 		model.addAttribute("board", board);
+		model.addAttribute("moimMain", moimMain);
+		model.addAttribute("moimBody", moimBody);
+		model.addAttribute("moimImg", moimImg);
+		model.addAttribute("moimDatetime", moimDatetime);
+		model.addAttribute("moimPlace", moimPlace);
+		model.addAttribute("moimMemberCnt", moimMemberCnt);
+		model.addAttribute("moimPrice", moimPrice);
+		
 
-		return "usr/Mmaker/list";
+		return "usr/Mmaker/lastMoim";
 	}
+	
+	@RequestMapping("/usr/Mmaker/scheduledMoim")
+	public String showScheduledMoim(Model model, @RequestParam(defaultValue = "2") int boardId,
+			@RequestParam(defaultValue = "2") int page, String moimMain, String moimBody, String moimImg, String moimDatetime, String moimPlace, String moimMemberCnt, String moimPrice) {
+
+		if (page <= 0) {
+			return rq.jsReturnOnView("페이지번호가 올바르지 않습니다", true);
+		}
+
+		Board board = boardService.getBoardById(boardId);
+
+		if (board == null) {
+			return rq.jsReturnOnView("존재하지 않는 게시판입니다", true);
+		}
+
+		int MmakersCnt = mmakerService.getMmakersCnt(boardId);
+		
+		int itemsInAPage = 10;
+
+		int pagesCount = (int) Math.ceil((double) MmakersCnt / itemsInAPage);
+
+		List<Mmaker> Mmakers = mmakerService.getMmakers(boardId, itemsInAPage, page, moimPrice, moimPrice, moimPrice, moimPrice, moimPrice, moimPrice, moimPrice);
+
+		model.addAttribute("pagesCount", pagesCount);
+		model.addAttribute("page", page);
+		model.addAttribute("MmakersCnt", MmakersCnt);
+		model.addAttribute("Mmakers", Mmakers);
+		model.addAttribute("board", board);
+		model.addAttribute("moimMain", moimMain);
+		model.addAttribute("moimBody", moimBody);
+		model.addAttribute("moimImg", moimImg);
+		model.addAttribute("moimDatetime", moimDatetime);
+		model.addAttribute("moimPlace", moimPlace);
+		model.addAttribute("moimMemberCnt", moimMemberCnt);
+		model.addAttribute("moimPrice", moimPrice);
+
+		return "usr/Mmaker/scheduledMoim";
+	}
+
 	
 	@RequestMapping("/usr/Mmaker/modify")
 	public String modify(Model model, int id) {
