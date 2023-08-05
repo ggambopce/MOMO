@@ -10,10 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.KoreaIT.MOMO.service.MmakerService;
-import com.KoreaIT.MOMO.service.BoardService;
 import com.KoreaIT.MOMO.util.Util;
 import com.KoreaIT.MOMO.vo.Mmaker;
-import com.KoreaIT.MOMO.vo.Board;
 import com.KoreaIT.MOMO.vo.ResultData;
 import com.KoreaIT.MOMO.vo.Rq;
 
@@ -21,13 +19,11 @@ import com.KoreaIT.MOMO.vo.Rq;
 public class UsrMmakerController {
 
 	private MmakerService mmakerService;
-	private BoardService boardService;
 	private Rq rq;
 
 	@Autowired
-	public UsrMmakerController(MmakerService mmakerService, BoardService boardService, Rq rq) {
+	public UsrMmakerController(MmakerService mmakerService, Rq rq) {
 		this.mmakerService = mmakerService;
-		this.boardService = boardService;
 		this.rq = rq;
 	}
 	
@@ -77,105 +73,50 @@ public class UsrMmakerController {
 	@RequestMapping("/usr/Mmaker/detail")
 	public String showDetail(Model model, int id) {
 
-		Mmaker Mmaker = mmakerService.getForPrintMmaker(id);
+		Mmaker mmaker = mmakerService.getForPrintMmaker(id);
 
-		mmakerService.actorCanChangeData(rq.getLoginedMemberId(), Mmaker);
+		mmakerService.actorCanChangeData(rq.getLoginedMemberId(), mmaker);
 		
-		model.addAttribute("Mmaker", Mmaker);
+		model.addAttribute("mmaker", mmaker);
 		
 		return "usr/Mmaker/detail";
 	}
 	
 	@RequestMapping("/usr/Mmaker/lastMoim")
-	public String showLastMoim(Model model, @RequestParam(defaultValue = "1") int boardId,
-			@RequestParam(defaultValue = "1") int page, String moimMain, String moimBody, String moimImg, String moimDatetime, String moimPlace, String moimMemberCnt, String moimPrice) {
+	public String showLastMoim(Model model) {
 
-		if (page <= 0) {
-			return rq.jsReturnOnView("페이지번호가 올바르지 않습니다", true);
-		}
 
-		Board board = boardService.getBoardById(boardId);
+		List<Mmaker> mmakers = mmakerService.getMmakers();
 
-		if (board == null) {
-			return rq.jsReturnOnView("존재하지 않는 게시판입니다", true);
-		}
-
-		int MmakersCnt = mmakerService.getMmakersCnt(boardId);
+		model.addAttribute("mmakers", mmakers);
 		
-		int itemsInAPage = 10;
-
-		int pagesCount = (int) Math.ceil((double) MmakersCnt / itemsInAPage);
-
-		List<Mmaker> Mmakers = mmakerService.getMmakers(boardId, itemsInAPage, page, moimMain, moimBody, moimImg, moimDatetime, moimPlace, moimMemberCnt, moimPrice);
-
-		model.addAttribute("pagesCount", pagesCount);
-		model.addAttribute("page", page);
-		model.addAttribute("MmakersCnt", MmakersCnt);
-		model.addAttribute("Mmakers", Mmakers);
-		model.addAttribute("board", board);
-		model.addAttribute("moimMain", moimMain);
-		model.addAttribute("moimBody", moimBody);
-		model.addAttribute("moimImg", moimImg);
-		model.addAttribute("moimDatetime", moimDatetime);
-		model.addAttribute("moimPlace", moimPlace);
-		model.addAttribute("moimMemberCnt", moimMemberCnt);
-		model.addAttribute("moimPrice", moimPrice);
 		
-
-		return "usr/Mmaker/lastMoim";
+		return "usr/mmaker/lastmoim";
 	}
 	
 	@RequestMapping("/usr/Mmaker/scheduledMoim")
-	public String showScheduledMoim(Model model, @RequestParam(defaultValue = "2") int boardId,
-			@RequestParam(defaultValue = "2") int page, String moimMain, String moimBody, String moimImg, String moimDatetime, String moimPlace, String moimMemberCnt, String moimPrice) {
+	public String showScheduledMoim(Model model) {
 
-		if (page <= 0) {
-			return rq.jsReturnOnView("페이지번호가 올바르지 않습니다", true);
-		}
+		List<Mmaker> mmakers = mmakerService.getMmakers();
 
-		Board board = boardService.getBoardById(boardId);
+		model.addAttribute("mamkers", mmakers);
 
-		if (board == null) {
-			return rq.jsReturnOnView("존재하지 않는 게시판입니다", true);
-		}
-
-		int MmakersCnt = mmakerService.getMmakersCnt(boardId);
-		
-		int itemsInAPage = 10;
-
-		int pagesCount = (int) Math.ceil((double) MmakersCnt / itemsInAPage);
-
-		List<Mmaker> Mmakers = mmakerService.getMmakers(boardId, itemsInAPage, page, moimPrice, moimPrice, moimPrice, moimPrice, moimPrice, moimPrice, moimPrice);
-
-		model.addAttribute("pagesCount", pagesCount);
-		model.addAttribute("page", page);
-		model.addAttribute("MmakersCnt", MmakersCnt);
-		model.addAttribute("Mmakers", Mmakers);
-		model.addAttribute("board", board);
-		model.addAttribute("moimMain", moimMain);
-		model.addAttribute("moimBody", moimBody);
-		model.addAttribute("moimImg", moimImg);
-		model.addAttribute("moimDatetime", moimDatetime);
-		model.addAttribute("moimPlace", moimPlace);
-		model.addAttribute("moimMemberCnt", moimMemberCnt);
-		model.addAttribute("moimPrice", moimPrice);
-
-		return "usr/Mmaker/scheduledMoim";
+		return "usr/mmaker/scheduledmoim";
 	}
 
 	
 	@RequestMapping("/usr/Mmaker/modify")
 	public String modify(Model model, int id) {
 
-		Mmaker Mmaker = mmakerService.getForPrintMmaker(id);
+		Mmaker mmaker = mmakerService.getForPrintMmaker(id);
 
-		ResultData actorCanMD = mmakerService.actorCanMD(rq.getLoginedMemberId(), Mmaker);
+		ResultData actorCanMD = mmakerService.actorCanMD(rq.getLoginedMemberId(), mmaker);
 
 		if (actorCanMD.isFail()) {
 			return rq.jsReturnOnView(actorCanMD.getMsg(), true);
 		}
 
-		model.addAttribute("Mmaker", Mmaker);
+		model.addAttribute("mmaker", mmaker);
 
 		return "usr/Mmaker/modify";
 	}
@@ -184,9 +125,9 @@ public class UsrMmakerController {
 	@ResponseBody
 	public String doModify(int id, String title, String body) {
 
-		Mmaker Mmaker = mmakerService.getMmakerById(id);
+		Mmaker mmaker = mmakerService.getMmakerById(id);
 
-		ResultData actorCanModifyRd = mmakerService.actorCanMD(rq.getLoginedMemberId(), Mmaker);
+		ResultData actorCanModifyRd = mmakerService.actorCanMD(rq.getLoginedMemberId(), mmaker);
 
 		if (actorCanModifyRd.isFail()) {
 			return Util.jsHistoryBack(actorCanModifyRd.getMsg());
@@ -201,9 +142,9 @@ public class UsrMmakerController {
 	@ResponseBody
 	public String doDelete(int id) {
 
-		Mmaker Mmaker = mmakerService.getMmakerById(id);
+		Mmaker mmaker = mmakerService.getMmakerById(id);
 
-		ResultData actorCanModifyRd = mmakerService.actorCanMD(rq.getLoginedMemberId(), Mmaker);
+		ResultData actorCanModifyRd = mmakerService.actorCanMD(rq.getLoginedMemberId(), mmaker);
 		
 
 		if (actorCanModifyRd.isFail()) {

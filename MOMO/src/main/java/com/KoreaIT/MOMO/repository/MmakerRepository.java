@@ -15,7 +15,7 @@ public interface MmakerRepository {
 
 	public Mmaker getMmakerById(int id);
 
-	public List<Mmaker> getMmakers(int boardId, int limitStart, int itemsInAPage, String moimMain, String moimBody, String moimImg, String moimDatetime, String moimPlace, String moimMemberCnt, String moimPrice);
+	public List<Mmaker> getMmakers();
 
 	public void modifyMmaker(int id, String title, String body);
 	

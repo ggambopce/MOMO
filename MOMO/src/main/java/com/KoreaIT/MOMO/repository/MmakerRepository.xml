@@ -4,7 +4,7 @@
 <mapper namespace="com.KoreaIT.MOMO.repository.MmakerRepository">
 
 	<insert id="writeMmaker">
-		INSERT INTO mmaker
+		INSERT INTO `mmaker`
 		SET regDate = NOW(),
 		updateDate = NOW(),
 		memberId = #{memberId},
@@ -22,35 +22,26 @@
 	</select>
 
 	<select id="getForPrintMmaker" resultType="Mmaker">
-		SELECT A.*, M.name AS
+		SELECT *
 		writerName
-		FROM mmaker AS A
-		INNER JOIN `member` AS M
-		ON A.memberId = M.id
-		WHERE A.id = #{id}
+		FROM `mmaker`
+		WHERE id = #{id}
 	</select>
 
 	<select id="getMmakerById" resultType="Mmaker">
 		SELECT *
-		FROM mmaker
+		FROM `mmaker`
 		WHERE id = #{id}
 	</select>
 	
 	<select id="getMmakers" resultType="Mmaker">
-		SELECT A.*, M.name AS writerName
-		FROM mmaker AS A
-		INNER JOIN `member` AS M
-		ON A.memberId = M.id
-		WHERE 1 = 1
-		<if test="boardId != 0">
-			AND boardId = #{boardId}
-		</if>
-		ORDER BY id DESC
-		LIMIT #{limitStart}, #{itemsInAPage}
+		SELECT *,
+		FROM `mmaker`
+		WHERE id = #{id}
 	</select>
 
 	<update id="modifyMmaker">
-		UPDATE mmaker
+		UPDATE `mmaker`
 		<set>
 			updateDate = NOW(),
 			<if test="moimMain != null and moimMain != ''">
@@ -64,7 +55,7 @@
 	</update>
 
 	<delete id="deleteMmaker">
-		DELETE FROM mmaker
+		DELETE FROM `mmaker`
 		WHERE id = #{id}
 	</delete>
 

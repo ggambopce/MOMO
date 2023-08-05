@@ -21,7 +21,7 @@
 								<td><input class="w-96" type="text" name="loginPw" placeholder="비밀번호를 입력해주세요"/></td>
 							</tr>
 							<tr>
-								<td colspan="2"><button>로그인</button></td>
+								<td colspan="2" ><button>로그인</button></td>
 							</tr>
 						</tbody>
 					</table>
