@@ -85,7 +85,6 @@ public class UsrMmakerController {
 	@RequestMapping("/usr/Mmaker/lastMoim")
 	public String showLastMoim(Model model) {
 
-
 		List<Mmaker> mmakers = mmakerService.getMmakers();
 
 		model.addAttribute("mmakers", mmakers);
@@ -99,7 +98,7 @@ public class UsrMmakerController {
 
 		List<Mmaker> mmakers = mmakerService.getMmakers();
 
-		model.addAttribute("mamkers", mmakers);
+		model.addAttribute("mmakers", mmakers);
 
 		return "usr/mmaker/scheduledmoim";
 	}

@@ -1,0 +1,81 @@
+package com.KoreaIT.MOMO.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.KoreaIT.MOMO.repository.LastMoimRepository;
+import com.KoreaIT.MOMO.util.Util;
+import com.KoreaIT.MOMO.vo.Mmaker;
+import com.KoreaIT.MOMO.vo.ResultData;
+
+@Service
+public class LastMoimService {
+
+	private LastMoimRepository lastmoimRepository;
+
+	@Autowired
+	public LastMoimService(LastMoimRepository lastmoimRepository) {
+		this.lastmoimRepository = lastmoimRepository;
+	}
+
+	public void writeMmaker(int memberId, String moimMain, String moimBody, String moimImg, String moimDatetime, String moimPlace, String moimMemberCnt, String moimPrice) {
+		lastmoimRepository.writeMmaker(memberId, moimMain, moimBody, moimImg, moimDatetime, moimPlace, moimMemberCnt, moimPrice);
+	}
+
+	public int getLastInsertId() {
+		return lastmoimRepository.getLastInsertId();
+	}
+
+	public Mmaker getMmakerById(int id) {
+		return lastmoimRepository.getMmakerById(id);
+	}
+
+	public List<Mmaker> getMmakers(){
+
+		return lastmoimRepository.getMmakers();
+	}
+
+	public void modifyMmaker(int id, String moimMain, String moimBody) {
+		lastmoimRepository.modifyMmaker(id, moimMain, moimBody);
+		
+	}
+
+	public void deleteMmaker(int id) {
+		lastmoimRepository.deleteMmaker(id);
+	}
+	
+	public ResultData actorCanMD(int loginedMemberId, Mmaker mmaker) {
+		if(mmaker == null) {
+			return ResultData.from("F-1", "해당 게시물은 존재하지 않습니다");
+		}
+
+		if (loginedMemberId != mmaker.getMemberId()) {
+			return ResultData.from("F-B", "해당 게시물에 대한 권한이 없습니다");
+		}
+		
+		return ResultData.from("S-1", "가능");
+	}
+	
+	
+	public Mmaker getForPrintMmaker(int id) {
+
+		Mmaker mmaker = lastmoimRepository.getForPrintMmaker(id);
+
+		return mmaker;
+	}
+
+	public void actorCanChangeData(int loginedMemberId, Mmaker mmaker) {
+		
+		ResultData actorCanChangeDataRd = actorCanMD(loginedMemberId, mmaker);
+
+		mmaker.setActorCanChangeData(actorCanChangeDataRd.isSuccess());
+	}
+	
+	public int getMmakersCnt(int boardId) {
+		return lastmoimRepository.getMmakersCnt(boardId);
+	}
+	
+	
+}

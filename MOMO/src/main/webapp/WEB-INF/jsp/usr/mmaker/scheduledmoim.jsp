@@ -2,50 +2,49 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="pageTitle" value="예정모임" />
-<%@ include file="../common/header.jsp" %>
-	<section class="mt-8 text-xl">
-		<div class="container mx-auto px-3">
-			<div class="table-box-type-1">
-				<table class="table table-zebra">
-					<colgroup>
-						<col width="200" />
-					</colgroup>
-					<tbody>
-						<tr>
-							<th>번호</th>
-							<td><div class="badge">${mmaker.id }</div></td>
-						</tr>
-						<tr>
-							<th>작성날짜</th>
-							<td>${mmaker.regDate }</td>
-						</tr>
-						<tr>
-							<th>수정날짜</th>
-							<td>${mmaker.updateDate }</td>
-						</tr>
-						<tr>
-							<th>작성자</th>
+<%@ include file="../common/header.jsp"%>
+<section class="mt-8 text-xl">
+	<div class="container mx-auto px-3">
+		<div class="mb-2 flex justify-between items-end">
+					<div><span>총 : ${mmakersCnt } 개</span></div>
+					<c:if test="${rq.getLoginedMemberId() != 0  }">
+						<a class="btn-text-link btn btn-active btn-ghost" href="write">WRITE</a>
+					</c:if>
+			</div>
+		<div class="table-box-type-1">
+			<table class="table w-full">
+				<thead>
+					<tr>
+						<th>번호</th>
+						<th>작성일자</th>
+						<th>모임장</th>
+						<th>모임제목</th>
+						<th>모임내용</th>
+						<th>모임사진</th>
+						<th>모임장소</th>
+						<th>모임일시</th>
+						<th>모임목적</th>
+						<th>모임관심사</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="mmaker" items="${mmakers }">
+						<tr class="hover">
+							<td>${mmaker.id }</td>
+							<td>${mmaker.regDate.substring(2, 16) }</td>
 							<td>${mmaker.writerName }</td>
-						</tr>
-						<tr>
-							<th>제목</th>
-							<td>${mmaker.moimMain }</td>
-						</tr>
-						<tr>
-							<th>내용</th>
+							<td><a class="hover:underline" href="detail?id=${mmaker.id }">${mmaker.moimMain }</a></td>
 							<td>${mmaker.moimBody }</td>
+							<td>${mmaker.moimImg }</td>
+							<td>${mmaker.moimPlace }</td>
+							<td>${mmaker.moimDatetime }</td>
+							<td>${mmaker.moimAim }</td>
+							<td>${mmaker.moimCategory }</td>
 						</tr>
-					</tbody>
-				</table>
-			</div>
-			
-			<div class="btns mt-2">
-				<button class="btn-text-link btn btn-active btn-ghost" type="button" onclick="history.back();">뒤로가기</button>
-				<c:if test="${mmaker.actorCanChangeData }">
-					<a class="btn-text-link btn btn-active btn-ghost" href="modify?id=${mmaker.id }">수정</a>
-					<a class="btn-text-link btn btn-active btn-ghost" href="doDelete?id=${mmaker.id }" onclick="if(confirm('정말 삭제하시겠습니까?') == false) return false;">삭제</a>
-				</c:if>
-			</div>
+					</c:forEach>
+				</tbody>
+			</table>
 		</div>
-	</section>
-<%@ include file="../common/footer.jsp" %>
+	</div>
+</section>
+<%@ include file="../common/footer.jsp"%>
