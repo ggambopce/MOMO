@@ -45,10 +45,10 @@
 		<ul class="flex">
 			<li class="hover:underline"><a
 				class="h-full px-3 flex items-center"
-				href="/usr/mmaker/lastmoim"><button>지난모임</button></a></li>
+				href="/usr/Mmaker/lastMoim"><button>지난모임</button></a></li>
 			<li class="hover:underline"><a
 				class="h-full px-3 flex items-center"
-				href="/usr/mmaker/scheduledmoim"><button>예정모임 </button></a></li>
+				href="/usr/Mmaker/scheduledMoim"><button>예정모임 </button></a></li>
 			<c:if test="${rq.getLoginedMemberId() == 0 }">
 				<li class="hover:underline"><a
 					class="h-full px-2 flex items-center" href="/usr/login"><button>로그인</button></a></li>

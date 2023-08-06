@@ -104,7 +104,6 @@ public class UsrMmakerController {
 		return "usr/mmaker/scheduledmoim";
 	}
 
-	
 	@RequestMapping("/usr/Mmaker/modify")
 	public String modify(Model model, int id) {
 

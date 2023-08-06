@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.KoreaIT.MOMO.repository.MmakerRepository">
+
+	<insert id="writeMmaker">
+		INSERT INTO `mmaker`
+		SET regDate = NOW(),
+		updateDate = NOW(),
+		memberId = #{memberId},
+		`moimmain` = #{moimMain},
+		`moimbody` = #{moimBody},
+		`moimimg` = #{moimImg},
+		`moimplace` = #{moimPlace},
+		`moimdatetime` = #{moimDatetime},
+		`moimmembercnt` = #{moimMemberCnt},
+		`moimprice` = #{moimPrice}
+	</insert>
+
+	<select id="getLastInsertId" resultType="int">
+		SELECT LAST_INSERT_ID()
+	</select>
+
+	<select id="getForPrintMmaker" resultType="Mmaker">
+		SELECT *
+		writerName
+		FROM `mmaker`
+		WHERE id = #{id}
+	</select>
+
+	<select id="getMmakerById" resultType="Mmaker">
+		SELECT *
+		FROM `mmaker`
+		WHERE id = #{id}
+	</select>
+	
+	<select id="getMmakers" resultType="Mmaker">
+		SELECT *,
+		FROM `mmaker`
+		WHERE id = #{id}
+	</select>
+
+	<update id="modifyMmaker">
+		UPDATE `mmaker`
+		<set>
+			updateDate = NOW(),
+			<if test="moimMain != null and moimMain != ''">
+				moimMain = #{moimMain},
+			</if>
+			<if test="moimBody != null and moimBody != ''">
+				`moimBody` = #{moimBody}
+			</if>
+		</set>
+		WHERE id = #{id}
+	</update>
+
+	<delete id="deleteMmaker">
+		DELETE FROM `mmaker`
+		WHERE id = #{id}
+	</delete>
+
+</mapper>
