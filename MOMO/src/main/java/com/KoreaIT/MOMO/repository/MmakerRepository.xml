@@ -35,8 +35,15 @@
 	</select>
 	
 	<select id="getMmakers" resultType="Mmaker">
-		SELECT *
-		FROM `mmaker`
+		<![CDATA[
+		SELECT * FROM `mmaker` 
+		WHERE DATE_FORMAT(moimdatetime , "%Y-%m-%d") < NOW()
+		]]>
+	</select>
+	
+	<select id="getMmakersS" resultType="Mmaker">
+		SELECT * FROM `mmaker` 
+		WHERE DATE_FORMAT(moimdatetime , "%Y-%m-%d") >= NOW()
 	</select>
 
 	<update id="modifyMmaker">

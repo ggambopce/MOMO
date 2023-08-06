@@ -24,4 +24,5 @@ public class Mmaker {
 	private String moimAim;
 	private String moimCategory;
 	private boolean actorCanChangeData;
+	
 }

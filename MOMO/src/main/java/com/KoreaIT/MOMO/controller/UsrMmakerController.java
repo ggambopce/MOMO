@@ -96,7 +96,7 @@ public class UsrMmakerController {
 	@RequestMapping("/usr/Mmaker/scheduledMoim")
 	public String showScheduledMoim(Model model) {
 
-		List<Mmaker> mmakers = mmakerService.getMmakers();
+		List<Mmaker> mmakers = mmakerService.getMmakersS();
 
 		model.addAttribute("mmakers", mmakers);
 
