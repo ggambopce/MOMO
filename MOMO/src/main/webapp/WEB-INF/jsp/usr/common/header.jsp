@@ -41,23 +41,23 @@
 					class="label">Medium</span></a></li>
 		</ul>
 	</header>
-	<div class="h-20 flex container mx-auto text-4xl">
+	<div class="mt-4 h-12 flex container mx-auto text-4xl">
 		<ul class="flex">
 			<li class="hover:underline"><a
 				class="h-full px-3 flex items-center"
-				href="/usr/Mmaker/lastMoim"><button>지난모임</button></a></li>
+				href="/usr/Mmaker/lastMoim"><button class="text-base px-2">지난모임</button></a></li>
 			<li class="hover:underline"><a
 				class="h-full px-3 flex items-center"
-				href="/usr/Mmaker/scheduledMoim"><button>예정모임 </button></a></li>
+				href="/usr/Mmaker/scheduledMoim"><button class="text-base px-2">예정모임 </button></a></li>
 			<c:if test="${rq.getLoginedMemberId() == 0 }">
 				<li class="hover:underline"><a
-					class="h-full px-2 flex items-center" href="/usr/login"><button>로그인</button></a></li>
+					class="h-full px-2 flex items-center" href="/usr/login"><button class="text-base px-2">로그인</button></a></li>
 				<li class="hover:underline"><a
-					class="h-full px-2 flex items-center" href="/usr/join"><button>회원가입</button></a></li>
+					class="h-full px-2 flex items-center" href="/usr/join"><button class="text-base px-2">회원가입</button ></a></li>
 			</c:if>
 			<c:if test="${rq.getLoginedMemberId() != 0  }">
 				<li class="hover:underline"><a
-					class="h-full px-3 flex items-center" href="/usr/member/doLogout"><button>로그아웃</button></a></li>
+					class="h-full px-3 flex items-center" href="/usr/member/doLogout"><button class="text-base px-2">로그아웃</button></a></li>
 			</c:if>
 		</ul>
 	</div>
