@@ -27,6 +27,12 @@
 		FROM `mmaker`
 		WHERE id = #{id}
 	</select>
+	
+	<update id="increaseHitCount">
+		UPDATE article
+			SET hitCount = hitCount + 1
+			WHERE id = #{id}
+	</update>
 
 	<select id="getMmakerById" resultType="Mmaker">
 		SELECT *

@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.KoreaIT.MOMO.vo.Mmaker;
+import com.KoreaIT.MOMO.vo.ResultData;
 
 @Mapper
 public interface MmakerRepository {
@@ -26,4 +27,6 @@ public interface MmakerRepository {
 	public Mmaker getForPrintMmaker(int id);
 	
 	public int getMmakersCnt(int boardId);
+
+	public int increaseHitCount(int id);
 }

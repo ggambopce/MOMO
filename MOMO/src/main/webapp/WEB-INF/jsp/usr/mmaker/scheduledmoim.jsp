@@ -23,8 +23,10 @@
 						<th>모임사진</th>
 						<th>모임장소</th>
 						<th>모임일시</th>
+						<th>모임비</th>
 						<th>모임목적</th>
 						<th>모임관심사</th>
+						<th>좋아요</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -38,8 +40,10 @@
 							<td>${mmaker.moimImg }</td>
 							<td>${mmaker.moimPlace }</td>
 							<td>${mmaker.moimDatetime }</td>
+							<td>${mmaker.moimPrice }</td>
 							<td>${mmaker.moimAim }</td>
 							<td>${mmaker.moimCategory }</td>
+							<td>${mmaker.hitCount }</td>
 						</tr>
 					</c:forEach>
 				</tbody>

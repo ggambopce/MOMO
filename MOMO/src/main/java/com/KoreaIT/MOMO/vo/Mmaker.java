@@ -23,6 +23,7 @@ public class Mmaker {
 	private String moimPrice;
 	private String moimAim;
 	private String moimCategory;
+	private int hitCount;
 	private boolean actorCanChangeData;
 	
 }

@@ -73,6 +73,13 @@ public class UsrMmakerController {
 	@RequestMapping("/usr/Mmaker/detail")
 	public String showDetail(Model model, int id) {
 
+		ResultData<Integer> increaseHitCountRd = mmakerService.increaseHitCount(id);
+
+		if (increaseHitCountRd.isFail()) {
+			return rq.jsReturnOnView(increaseHitCountRd.getMsg(), true);
+		}
+
+		
 		Mmaker mmaker = mmakerService.getForPrintMmaker(id);
 
 		mmakerService.actorCanChangeData(rq.getLoginedMemberId(), mmaker);
