@@ -27,6 +27,7 @@
 							<td><input class="input input-bordered w-full max-w-xs"
 								type="text" name="moimImg" placeholder="모임사진을 입력해주세요" /></td>
 						</tr>
+						
 						<tr>
 							<th>모임일시</th>
 							<td><input class="input input-bordered w-full max-w-xs"
@@ -44,14 +45,14 @@
 						</tr>
 						<tr>
 							<th>모임비</th>
-							<td><input class="input input-bordered w-full max-w-xs"
+	 						<td><input class="input input-bordered w-full max-w-xs"
 								type="text" name="moimPrice" placeholder="모임비를 입력해주세요" /></td>
 						</tr>
 						<tr>
 							<th>모임목적</th>
 							<td><label> <input type="radio" name="moimAim"
 									value="1" checked /> &nbsp;재미 
-							</label> &nbsp;&nbsp;&nbsp; <label> <input type="radio"
+							</label> &nbsp;<label> <input type="radio"
 									name="moimAim" value="2" /> &nbsp;성장
 							</label></td>
 						</tr>
@@ -81,4 +82,5 @@
 		</div>
 	</div>
 </section>
+
 <%@ include file="../common/footer.jsp"%>

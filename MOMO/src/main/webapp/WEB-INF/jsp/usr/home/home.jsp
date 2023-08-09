@@ -76,9 +76,6 @@
 								</li>
 							</ul>
 						</c:if>
-						<span class="image object"> <img src="images/pic10.jpg"
-							alt="" />
-						</span>
 				</section>
 
 				<!-- Section -->
@@ -86,6 +83,14 @@
 					<header class="major">
 						<h2>지난 모임</h2>
 					</header>
+
+					<article>
+						<div>
+							<iframe src="http://127.0.0.1:8082/usr/Mmaker/lastMoim"
+								width="100%" height="600" frameborder="0" scrolling="auto"></iframe>
+						</div>
+					</article>
+
 					<div class="features">
 						<article>
 							<span class="icon fa-gem"></span>
@@ -105,24 +110,6 @@
 									nulla amet lorem feugiat tempus aliquam.</p>
 							</div>
 						</article>
-						<article>
-							<span class="icon solid fa-rocket"></span>
-							<div class="content">
-								<h3>Quam lorem ipsum</h3>
-								<p>Aenean ornare velit lacus, ac varius enim lorem
-									ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed
-									nulla amet lorem feugiat tempus aliquam.</p>
-							</div>
-						</article>
-						<article>
-							<span class="icon solid fa-signal"></span>
-							<div class="content">
-								<h3>Sed magna finibus</h3>
-								<p>Aenean ornare velit lacus, ac varius enim lorem
-									ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed
-									nulla amet lorem feugiat tempus aliquam.</p>
-							</div>
-						</article>
 					</div>
 				</section>
 
@@ -131,6 +118,13 @@
 					<header class="major">
 						<h2>예정 모임</h2>
 					</header>
+
+					<article>
+						<div>
+							<iframe src="http://127.0.0.1:8082/usr/Mmaker/scheduledMoim"
+								width="100%" height="600" frameborder="0" scrolling="auto"></iframe>
+						</div>
+					</article>
 					<div class="posts">
 						<article>
 							<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
@@ -145,26 +139,6 @@
 						<article>
 							<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
 							<h3>Nulla amet dolore</h3>
-							<p>Aenean ornare velit lacus, ac varius enim lorem
-								ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed
-								nulla amet lorem feugiat tempus aliquam.</p>
-							<ul class="actions">
-								<li><a href="#" class="button">참여하기</a></li>
-							</ul>
-						</article>
-						<article>
-							<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
-							<h3>Tempus ullamcorper</h3>
-							<p>Aenean ornare velit lacus, ac varius enim lorem
-								ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed
-								nulla amet lorem feugiat tempus aliquam.</p>
-							<ul class="actions">
-								<li><a href="#" class="button">참여하기</a></li>
-							</ul>
-						</article>
-						<article>
-							<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
-							<h3>Sed etiam facilis</h3>
 							<p>Aenean ornare velit lacus, ac varius enim lorem
 								ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed
 								nulla amet lorem feugiat tempus aliquam.</p>
@@ -231,8 +205,8 @@
 					</header>
 					<ul>
 						<li><a href="home">홈</a></li>
-						<li><a href="generic.html">지난모임</a></li>
-						<li><a href="elements">예정모임</a></li>
+						<li><a href="Mmaker/lastMoim">지난모임</a></li>
+						<li><a href="Mmaker/scheduledMoim">예정모임</a></li>
 						<li><span class="opener">구독모임</span>
 							<ul>
 								<li><a href="#">Lorem Dolor</a></li>
@@ -240,7 +214,7 @@
 								<li><a href="#">Tempus Magna</a></li>
 								<li><a href="#">Feugiat Veroeros</a></li>
 							</ul></li>
-						<li><span class="opener">카테고리</span>
+						<li><span class="opener">모임도구</span>
 							<ul>
 								<li><a href="#">Lorem Dolor</a></li>
 								<li><a href="#">Ipsum Adipiscing</a></li>

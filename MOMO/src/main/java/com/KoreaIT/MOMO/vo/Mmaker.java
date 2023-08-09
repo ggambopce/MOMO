@@ -25,5 +25,8 @@ public class Mmaker {
 	private String moimCategory;
 	private int hitCount;
 	private boolean actorCanChangeData;
+	private int sumReactionPoint;
+	private int goodReactionPoint;
+	private int badReactionPoint;
 	
 }
