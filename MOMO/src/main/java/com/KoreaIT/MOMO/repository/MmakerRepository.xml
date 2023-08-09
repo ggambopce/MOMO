@@ -27,7 +27,7 @@
 				, IFNULL(SUM(RP.point), 0) AS sumReactionPoint
 	            , IFNULL(SUM(IF(RP.point &gt; 0, RP.point, 0)), 0) AS goodReactionPoint
 	           	, IFNULL(SUM(IF(RP.point &lt; 0, RP.point, 0)), 0) AS badReactionPoint
-			FROM mmaker AS A
+			FROM `mmaker` AS A
 			INNER JOIN `member` AS M
 			ON A.memberId = M.id
 			LEFT JOIN reactionPoint AS RP
@@ -51,30 +51,47 @@
 	
 	<select id="getMmakers" resultType="Mmaker">
 		<![CDATA[
-		SELECT * FROM `mmaker` 
-		WHERE DATE_FORMAT(moimdatetime , "%Y-%m-%d") < NOW()
+		With AM AS (
+			SELECT A.*, M.name AS writerName
+				FROM SB_AM.mmaker AS A
+				INNER JOIN SB_AM.member AS M
+				ON A.memberId = M.id OR A.memberId = 0
+				AND DATE_FORMAT(moimdatetime , "%Y-%m-%d") < NOW()
+			)
+			SELECT AM.*
+	            , IFNULL(SUM(RP.point), 0) AS sumReactionPoint
+	            , IFNULL(SUM(IF(RP.point > 0, RP.point, 0)), 0) AS goodReactionPoint
+	           	, IFNULL(SUM(IF(RP.point < 0, RP.point, 0)), 0) AS badReactionPoint
+	        	FROM AM
+            	LEFT JOIN SB_AM.reactionPoint AS RP
+            	ON RP.relTypeCode = 'mmaker'
+            	AND RP.relId = AM.id
+			    GROUP BY AM.id
+			    ORDER BY AM.id DESC
+		
+		
 		]]>
 	</select>
 	
 	<select id="getMmakersS" resultType="Mmaker">
 		With AM AS (
 			SELECT A.*, M.name AS writerName
-				FROM `mmaker` AS A
-				INNER JOIN `member` AS M
-				ON A.memberID = M.id
-				WHERE DATE_FORMAT(moimdatetime , "%Y-%m-%d") >= NOW()
+				FROM SB_AM.mmaker AS A
+				INNER JOIN SB_AM.member AS M
+				ON A.memberId = M.id OR A.memberId = 0
+				AND DATE_FORMAT(moimdatetime , "%Y-%m-%d") >= NOW()
 			)
 			SELECT AM.*
 	            , IFNULL(SUM(RP.point), 0) AS sumReactionPoint
 	            , IFNULL(SUM(IF(RP.point &gt; 0, RP.point, 0)), 0) AS goodReactionPoint
 	           	, IFNULL(SUM(IF(RP.point &lt; 0, RP.point, 0)), 0) AS badReactionPoint
 	        	FROM AM
-            	LEFT JOIN reactionPoint AS RP
+            	LEFT JOIN SB_AM.reactionPoint AS RP
             	ON RP.relTypeCode = 'mmaker'
             	AND RP.relId = AM.id
 			    GROUP BY AM.id
 			    ORDER BY AM.id DESC
-			    LIMIT #{limitStart}, #{itemsInAPage}
+			   
 	</select>
 
 	<update id="modifyMmaker">
