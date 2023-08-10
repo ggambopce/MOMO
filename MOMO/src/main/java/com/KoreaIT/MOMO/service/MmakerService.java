@@ -78,19 +78,8 @@ public class MmakerService {
 		mmaker.setActorCanChangeData(actorCanChangeDataRd.isSuccess());
 	}
 	
-	public int getMmakersCnt(int boardId) {
-		return mmakerRepository.getMmakersCnt(boardId);
-	}
-
-	public ResultData<Integer> increaseHitCount(int id) {
-
-		int affectedRowsCount = mmakerRepository.increaseHitCount(id);
-
-		if (affectedRowsCount == 0) {
-			return ResultData.from("F-1", "해당 게시물은 존재하지 않습니다", "affectedRowsCount", affectedRowsCount);
-		}
-
-		return ResultData.from("S-1", "좋아요", "affectedRowsCount", affectedRowsCount);
+	public void increaseHitCount(int id) {
+		mmakerRepository.increaseHitCount(id);
 	}
 	
 }

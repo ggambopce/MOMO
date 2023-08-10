@@ -27,7 +27,11 @@
 							<td><input class="input input-bordered w-full max-w-xs"
 								type="text" name="moimImg" placeholder="모임사진을 입력해주세요" /></td>
 						</tr>
-						
+						<tr>
+    						<th>모임사진</th>
+    						<td><input class="input input-bordered w-full max-w-xs"
+            				   type="file" accept="image/*" name="moimImg" /></td>
+						</tr>
 						<tr>
 							<th>모임일시</th>
 							<td><input class="input input-bordered w-full max-w-xs"

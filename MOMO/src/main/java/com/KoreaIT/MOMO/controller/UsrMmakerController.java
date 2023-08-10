@@ -67,27 +67,9 @@ public class UsrMmakerController {
 
 		int id = mmakerService.getLastInsertId();
 
-		return Util.jsReplace(Util.f("%d번 게시물이 생성되었습니다", id), Util.f("detail?id=%d", id));
+		return Util.jsReplace(Util.f("%d번 게시물이 생성되었습니다", id), Util.f("scheduledMoim"));
 	}
 	
-	@RequestMapping("/usr/Mmaker/detail")
-	public String showDetail(Model model, int id) {
-
-		ResultData<Integer> increaseHitCountRd = mmakerService.increaseHitCount(id);
-
-		if (increaseHitCountRd.isFail()) {
-			return rq.jsReturnOnView(increaseHitCountRd.getMsg(), true);
-		}
-
-		
-		Mmaker mmaker = mmakerService.getForPrintMmaker(id);
-
-		mmakerService.actorCanChangeData(rq.getLoginedMemberId(), mmaker);
-		
-		model.addAttribute("mmaker", mmaker);
-		
-		return "usr/Mmaker/detail";
-	}
 	
 	@RequestMapping("/usr/Mmaker/lastMoim")
 	public String showLastMoim(Model model) {

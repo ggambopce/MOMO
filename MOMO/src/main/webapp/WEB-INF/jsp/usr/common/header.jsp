@@ -27,7 +27,7 @@
 
 <body>
 	<header id="header">
-		<a href="home" class="logo"><strong>MOMO</strong> : 모임의 모든 것</a>
+		<a href="http://127.0.0.1:8082/usr/home"  class="logo"><strong>MOMO</strong> : 모임의 모든 것</a>
 		<ul class="icons">
 			<li><a href="#" class="icon brands fa-twitter"><span
 					class="label">Twitter</span></a></li>
@@ -64,6 +64,5 @@
 
 	<section class="my-3 text-2xl">
 		<div class="container mx-auto px-3">
-			<h1>${pageTitle }&nbsp;Page</h1>
 		</div>
 	</section>

@@ -3,7 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="pageTitle" value="예정모임" />
 <%@ include file="../common/header.jsp"%>
-
 	<script>
 		function getReactionPoint(){
 			
