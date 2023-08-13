@@ -26,6 +26,6 @@ public class MyWebMvcConfigurer implements WebMvcConfigurer {
 		registry.addInterceptor(needLoginInterceptor).addPathPatterns("/usr/mmaker/write")
 		.addPathPatterns("/usr/mmaker/doWrite").addPathPatterns("/usr/mmaker/modify")
 		.addPathPatterns("/usr/mmaker/doModify").addPathPatterns("/usr/mmaker/doDelete")
-		.addPathPatterns("/usr/member/doLogout");
+		.addPathPatterns("/usr/member/doLogout").addPathPatterns("/usr/mmaker/scheduledmoim");
 	}
 }

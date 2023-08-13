@@ -36,11 +36,6 @@ public class MmakerService {
 
 		return mmakerRepository.getMmakers();
 	}
-	
-	public List<Mmaker> getMmakersS(){
-
-		return mmakerRepository.getMmakersS();
-	}
 
 	public void modifyMmaker(int id, String moimMain, String moimBody) {
 		mmakerRepository.modifyMmaker(id, moimMain, moimBody);

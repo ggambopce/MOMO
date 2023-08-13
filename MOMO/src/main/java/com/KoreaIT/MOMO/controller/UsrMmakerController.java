@@ -10,23 +10,30 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.KoreaIT.MOMO.service.MmakerService;
+import com.KoreaIT.MOMO.service.ReplyService;
 import com.KoreaIT.MOMO.util.Util;
 import com.KoreaIT.MOMO.vo.Mmaker;
+import com.KoreaIT.MOMO.vo.Reply;
 import com.KoreaIT.MOMO.vo.ResultData;
 import com.KoreaIT.MOMO.vo.Rq;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 @Controller
 public class UsrMmakerController {
 
 	private MmakerService mmakerService;
+	private ReplyService replyService;
 	private Rq rq;
 
 	@Autowired
-	public UsrMmakerController(MmakerService mmakerService, Rq rq) {
+	public UsrMmakerController(MmakerService mmakerService, ReplyService replyService, Rq rq) {
 		this.mmakerService = mmakerService;
+		this.replyService = replyService;
 		this.rq = rq;
 	}
-	
+
 	@RequestMapping("/usr/Mmaker/write")
 	public String write() {
 		return "usr/Mmaker/write";
@@ -34,7 +41,8 @@ public class UsrMmakerController {
 
 	@RequestMapping("/usr/Mmaker/doWrite")
 	@ResponseBody
-	public String doWrite(String moimMain, String moimBody, String moimImg, String moimDatetime, String moimPlace, String moimMemberCnt, String moimPrice) {
+	public String doWrite(String moimMain, String moimBody, String moimImg, String moimDatetime, String moimPlace,
+			String moimMemberCnt, String moimPrice) {
 
 		if (Util.empty(moimMain)) {
 			return Util.jsHistoryBack("모임제목을 입력해주세요");
@@ -43,51 +51,55 @@ public class UsrMmakerController {
 		if (Util.empty(moimBody)) {
 			return Util.jsHistoryBack("모임내용을 입력해주세요");
 		}
-		
+
 		if (Util.empty(moimImg)) {
 			return Util.jsHistoryBack("모임사진을 입력해주세요");
 		}
-		
+
 		if (Util.empty(moimDatetime)) {
 			return Util.jsHistoryBack("모임일시를 입력해주세요");
 		}
-		
+
 		if (Util.empty(moimPlace)) {
 			return Util.jsHistoryBack("모임장소를 입력해주세요");
 		}
-		
+
 		if (Util.empty(moimMemberCnt)) {
 			return Util.jsHistoryBack("모임인원을 입력해주세요");
 		}
-		
+
 		if (Util.empty(moimPrice)) {
 			return Util.jsHistoryBack("모임비를 입력해주세요");
 		}
-		mmakerService.writeMmaker(rq.getLoginedMemberId(), moimMain, moimBody, moimImg, moimDatetime, moimPlace, moimMemberCnt, moimPrice);
+		mmakerService.writeMmaker(rq.getLoginedMemberId(), moimMain, moimBody, moimImg, moimDatetime, moimPlace,
+				moimMemberCnt, moimPrice);
 
 		int id = mmakerService.getLastInsertId();
 
-		return Util.jsReplace(Util.f("%d번 게시물이 생성되었습니다", id), Util.f("scheduledMoim"));
+		return Util.jsReplace(Util.f("%d번 모임이 생성되었습니다", id), Util.f("scheduledMoim"));
 	}
-	
-	
+
 	@RequestMapping("/usr/Mmaker/lastMoim")
 	public String showLastMoim(Model model) {
 
 		List<Mmaker> mmakers = mmakerService.getMmakers();
 
 		model.addAttribute("mmakers", mmakers);
-		
-		
+
 		return "usr/mmaker/lastmoim";
 	}
-	
+
 	@RequestMapping("/usr/Mmaker/scheduledMoim")
-	public String showScheduledMoim(Model model) {
+	public String showScheduledMoim(HttpServletRequest req, HttpServletResponse resp, Model model, @RequestParam(required = false) Integer id) {
 
-		List<Mmaker> mmakers = mmakerService.getMmakersS();
-
-		model.addAttribute("mmakers", mmakers);
+		if (null != id) {
+			
+			Mmaker mmaker = mmakerService.getForPrintMmaker(id.intValue());
+			
+			mmakerService.actorCanChangeData(rq.getLoginedMemberId(), mmaker);
+			
+			model.addAttribute("mmaker", mmaker);
+		}
 
 		return "usr/mmaker/scheduledmoim";
 	}
@@ -107,7 +119,7 @@ public class UsrMmakerController {
 
 		return "usr/Mmaker/modify";
 	}
-	
+
 	@RequestMapping("/usr/Mmaker/doModify")
 	@ResponseBody
 	public String doModify(int id, String title, String body) {
@@ -124,7 +136,7 @@ public class UsrMmakerController {
 
 		return Util.jsReplace(Util.f("%d번 게시물을 수정했습니다", id), Util.f("detail?id=%d", id));
 	}
-	
+
 	@RequestMapping("/usr/Mmaker/doDelete")
 	@ResponseBody
 	public String doDelete(int id) {
@@ -132,12 +144,11 @@ public class UsrMmakerController {
 		Mmaker mmaker = mmakerService.getMmakerById(id);
 
 		ResultData actorCanModifyRd = mmakerService.actorCanMD(rq.getLoginedMemberId(), mmaker);
-		
 
 		if (actorCanModifyRd.isFail()) {
 			return Util.jsHistoryBack(actorCanModifyRd.getMsg());
 		}
-		
+
 		mmakerService.deleteMmaker(id);
 
 		return Util.jsReplace(Util.f("%d번 게시물을 삭제했습니다", id), "list");
