@@ -19,7 +19,6 @@ public class Member {
 	private String brithday;
 	private String gender;
 	private String cellphoneNum;
-	private String email;
 	private int delStatus;
 	private String delDate;
 }

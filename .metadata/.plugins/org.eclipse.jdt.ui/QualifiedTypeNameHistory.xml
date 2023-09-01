@@ -16,9 +16,7 @@
     <fullyQualifiedTypeName name="org.springframework.web.servlet.config.annotation.InterceptorRegistry"/>
     <fullyQualifiedTypeName name="org.springframework.web.servlet.HandlerInterceptor"/>
     <fullyQualifiedTypeName name="com.KoreaIT.MOMO.interceptor.NeedLoginInterceptor"/>
-    <fullyQualifiedTypeName name="jakarta.servlet.http.HttpServletResponse"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
-    <fullyQualifiedTypeName name="jakarta.servlet.http.HttpServletRequest"/>
     <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Select"/>
     <fullyQualifiedTypeName name="com.KoreaIT.MOMO.repository.BoardRepository"/>
     <fullyQualifiedTypeName name="com.KoreaIT.MOMO.service.BoardService"/>
@@ -45,4 +43,6 @@
     <fullyQualifiedTypeName name="com.KoreaIT.MOMO.service.ReplyService"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.KoreaIT.MOMO.vo.Reply"/>
+    <fullyQualifiedTypeName name="jakarta.servlet.http.HttpServletRequest"/>
+    <fullyQualifiedTypeName name="jakarta.servlet.http.HttpServletResponse"/>
 </qualifiedTypeNameHistroy>

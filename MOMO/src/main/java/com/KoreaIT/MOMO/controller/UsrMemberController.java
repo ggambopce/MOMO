@@ -34,7 +34,7 @@ public class UsrMemberController {
 	
 	@RequestMapping("/usr/member/doJoin")
 	@ResponseBody
-	public ResultData<Member> doJoin(String loginId, String loginPw, String name, String nickname, String gender, String birthday,  String cellphoneNum, String email) {
+	public ResultData<Member> doJoin(String loginId, String loginPw, String name, String nickname, String cellphoneNum, String gender, String birthday) {
 
 		if (rq.getLoginedMemberId() != 0) {
 			return ResultData.from("F-A", "로그아웃 후 이용해주세요");
@@ -48,6 +48,9 @@ public class UsrMemberController {
 		if (Util.empty(name)) {
 			return ResultData.from("F-3", "이름을 입력해주세요");
 		}
+		if (Util.empty(cellphoneNum)) {
+			return ResultData.from("F-4", "전화번호를 입력해주세요");
+		}
 		if (Util.empty(nickname)) {
 			return ResultData.from("F-4", "닉네임을 입력해주세요");
 		}
@@ -57,14 +60,8 @@ public class UsrMemberController {
 		if (Util.empty(birthday)) {
 			return ResultData.from("F-6", "생년월일을 입력해주세요");
 		}
-		if (Util.empty(cellphoneNum)) {
-			return ResultData.from("F-7", "전화번호를 입력해주세요");
-		}
-		if (Util.empty(email)) {
-			return ResultData.from("F-8", "이메일을 입력해주세요");
-		}
 
-		ResultData<Integer> doJoinRd = memberService.doJoin(loginId, loginPw, name, nickname, gender, birthday, cellphoneNum, email);
+		ResultData<Integer> doJoinRd = memberService.doJoin(loginId, loginPw, name, nickname, cellphoneNum, gender, birthday);
 
 		if (doJoinRd.isFail()) {
 			return ResultData.from(doJoinRd.getResultCode(), doJoinRd.getMsg());
@@ -87,7 +84,7 @@ public class UsrMemberController {
 		}
 
 		if (Util.empty(loginId)) {
-			return Util.jsHistoryBack("아이디를 입력해주세요");
+			return Util.jsHistoryBack("아이디를 입력해주세요"); 
 		}
 		if (Util.empty(loginPw)) {
 			return Util.jsHistoryBack("비밀번호를 입력해주세요");
@@ -114,7 +111,7 @@ public class UsrMemberController {
 
 		rq.logout();
 
-		return Util.jsReplace("정상적으로 로그아웃 되었습니다", "../home");
+		return Util.jsReplace("정상적으로 로그아웃 되었습니다", "../main");
 	}
 	
 	

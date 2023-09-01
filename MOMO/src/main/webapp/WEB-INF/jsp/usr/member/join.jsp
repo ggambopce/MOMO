@@ -40,17 +40,6 @@
 								<th>생년월일</th>
 								<td><input class="input input-bordered w-full max-w-xs" type="text" name="birthday" placeholder="생년월일을 입력해주세요"/></td>
 							</tr>
-							<tr>
-								<th>전화번호</th>
-								<td><input class="input input-bordered w-full max-w-xs" type="text" name="cellphoneNum" placeholder="전화번호를 입력해주세요"/></td>
-							</tr>
-							<tr>
-								<th>이메일</th>
-								<td><input class="input input-bordered w-full max-w-xs" type="text" name="email" placeholder="이메일을 입력해주세요"/></td>
-							</tr>
-							<tr>
-								<td colspan="2"><button class="btn-text-link btn btn-active" type="submit">회원가입</button></td>
-							</tr>
 						</tbody>
 					</table>
 				</div>
