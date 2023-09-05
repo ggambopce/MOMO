@@ -9,7 +9,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="/resources/assets/css/login.css" />
-<script src="/assets/js/login.js"></script>
+<script src="/resources/assets/js/login.js"></script>
 <title>${pageTitle }</title>
 </head>
 

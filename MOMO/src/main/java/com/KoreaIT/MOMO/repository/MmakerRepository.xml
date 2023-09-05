@@ -84,6 +84,15 @@
 			<if test="moimBody != null and moimBody != ''">
 				`moimBody` = #{moimBody}
 			</if>
+			<if test="moimImg != null and moimImg != ''">
+				`moimImg` = #{moimImg}
+			</if>
+			<if test="moimPlace != null and moimPlace != ''">
+				`moimPlace` = #{moimPlace}
+			</if>
+			<if test="moimPrice != null and moimPrice != ''">
+				`moimPrice` = #{moimPrice}
+			</if>
 		</set>
 		WHERE id = #{id}
 	</update>

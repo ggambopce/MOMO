@@ -18,7 +18,7 @@ public interface MmakerRepository {
 
 	public List<Mmaker> getMmakers();
 
-	public void modifyMmaker(int id, String title, String body);
+	public void modifyMmaker(int id, String moimMain, String moimBody, String moimImg, String moimPlace, String moimPrice);
 	
 	public void deleteMmaker(int id);
 	

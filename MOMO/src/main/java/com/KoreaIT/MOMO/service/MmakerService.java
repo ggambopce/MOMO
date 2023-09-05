@@ -37,8 +37,8 @@ public class MmakerService {
 		return mmakerRepository.getMmakers();
 	}
 
-	public void modifyMmaker(int id, String moimMain, String moimBody) {
-		mmakerRepository.modifyMmaker(id, moimMain, moimBody);
+	public void modifyMmaker(int id, String moimMain, String moimBody,String moimImg, String moimPlace, String moimPrice) {
+		mmakerRepository.modifyMmaker(id, moimMain, moimBody, moimImg, moimPlace, moimPrice);
 		
 	}
 

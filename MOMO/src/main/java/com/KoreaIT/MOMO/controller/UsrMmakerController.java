@@ -71,8 +71,7 @@ public class UsrMmakerController {
 		if (Util.empty(moimPrice)) {
 			return Util.jsHistoryBack("모임비를 입력해주세요");
 		}
-		mmakerService.writeMmaker(rq.getLoginedMemberId(), moimMain, moimBody, moimImg, moimDatetime, moimPlace,
-				moimMemberCnt, moimPrice);
+		mmakerService.writeMmaker(rq.getLoginedMemberId(), moimMain, moimBody, moimImg, moimDatetime, moimPlace, moimMemberCnt, moimPrice);
 
 		int id = mmakerService.getLastInsertId();
 
@@ -122,7 +121,7 @@ public class UsrMmakerController {
 
 	@RequestMapping("/usr/Mmaker/doModify")
 	@ResponseBody
-	public String doModify(int id, String title, String body) {
+	public String doModify(int id, String moimMain, String moimBody, String moimImg, String moimPlace, String moimPrice) {
 
 		Mmaker mmaker = mmakerService.getMmakerById(id);
 
@@ -132,7 +131,7 @@ public class UsrMmakerController {
 			return Util.jsHistoryBack(actorCanModifyRd.getMsg());
 		}
 
-		mmakerService.modifyMmaker(id, title, body);
+		mmakerService.modifyMmaker(id, moimMain, moimBody, moimImg, moimPlace, moimPrice);
 
 		return Util.jsReplace(Util.f("%d번 게시물을 수정했습니다", id), Util.f("detail?id=%d", id));
 	}
@@ -151,6 +150,6 @@ public class UsrMmakerController {
 
 		mmakerService.deleteMmaker(id);
 
-		return Util.jsReplace(Util.f("%d번 게시물을 삭제했습니다", id), "list");
+		return Util.jsReplace(Util.f("%d번 게시물을 삭제했습니다", id), "scheduledMoim");
 	}
 }

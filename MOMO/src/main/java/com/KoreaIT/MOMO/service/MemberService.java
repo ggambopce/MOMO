@@ -23,19 +23,19 @@ public class MemberService {
 		Member existsMember = getMemberByLoginId(loginId);
 
 		if (existsMember != null) {
-			return ResultData.from("F-7", Util.f("이미 사용중인 아이디(%s) 입니다", loginId));
+			return ResultData.from("F-8", Util.f("이미 사용중인 아이디(%s) 입니다", loginId));
 		}
 		
 		existsMember = getMemberByNickname(nickname);
 
 		if (existsMember != null) {
-			return ResultData.from("F-8", Util.f("이미 사용중인 닉네임(%s) 입니다", nickname));
+			return ResultData.from("F-9", Util.f("이미 사용중인 닉네임(%s) 입니다", nickname));
 		}
 		
 		existsMember = getMemberByNameAndCellphoneNum(name, cellphoneNum);
 
 		if (existsMember != null) {
-			return ResultData.from("F-9", Util.f("이미 사용중인 이름(%s)와 전화번호(%s)입니다", name, cellphoneNum));
+			return ResultData.from("F-10", Util.f("이미 사용중인 이름(%s)와 전화번호(%s)입니다", name, cellphoneNum));
 		}
 		
 		

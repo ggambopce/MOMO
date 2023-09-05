@@ -52,13 +52,13 @@ public class UsrMemberController {
 			return ResultData.from("F-4", "전화번호를 입력해주세요");
 		}
 		if (Util.empty(nickname)) {
-			return ResultData.from("F-4", "닉네임을 입력해주세요");
+			return ResultData.from("F-5", "닉네임을 입력해주세요");
 		}
 		if (Util.empty(gender)) {
-			return ResultData.from("F-5", "성별을 입력해주세요");
+			return ResultData.from("F-6", "성별을 입력해주세요");
 		}
 		if (Util.empty(birthday)) {
-			return ResultData.from("F-6", "생년월일을 입력해주세요");
+			return ResultData.from("F-7", "생년월일을 입력해주세요");
 		}
 
 		ResultData<Integer> doJoinRd = memberService.doJoin(loginId, loginPw, name, nickname, cellphoneNum, gender, birthday);
