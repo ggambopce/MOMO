@@ -43,6 +43,11 @@ a {
   margin: 15px 0;
 }
 
+ label {
+    display: inline-block; /* 인라인 요소로 표시 */
+    margin-right: 10px; /* 원하는 간격 설정 */
+ }
+  
 button {
   border-radius: 20px;
   border: 1px solid #FF4B2B;

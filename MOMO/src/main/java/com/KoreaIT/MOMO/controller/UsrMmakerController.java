@@ -88,19 +88,23 @@ public class UsrMmakerController {
 		return "usr/mmaker/lastmoim";
 	}
 
-	@RequestMapping("/usr/Mmaker/scheduledMoim")
-	public String showScheduledMoim(HttpServletRequest req, HttpServletResponse resp, Model model, @RequestParam(required = false) Integer id) {
-
-		if (null != id) {
-			
-			Mmaker mmaker = mmakerService.getForPrintMmaker(id.intValue());
-			
+	@RequestMapping("/usr/Mmaker/detail")
+	public String showDetail(Model model, int id) {
+		System.out.println("호춯 detail");
+		System.out.println(id);
+		try {
+			Mmaker mmaker = mmakerService.getForPrintMmaker(id);
 			mmakerService.actorCanChangeData(rq.getLoginedMemberId(), mmaker);
-			
+			System.out.println(mmaker.toString());
 			model.addAttribute("mmaker", mmaker);
 		}
-
-		return "usr/mmaker/scheduledmoim";
+		catch(Exception e)
+		{
+			System.out.println(e);
+			System.out.println(e.getStackTrace());
+		}
+		return "usr/mmaker/detail";
+		
 	}
 
 	@RequestMapping("/usr/Mmaker/modify")

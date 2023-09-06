@@ -33,8 +33,6 @@
 
 <section class="mt-8 text-xl">
 	<div class="container mx-auto px-3">
-
-
 		<div class="grid grid-cols-3 gap-4">
 			<c:forEach var="mmaker" items="${mmakers}">
 				<div class="border rounded-lg overflow-hidden">
@@ -50,10 +48,12 @@
 						<div class="flex justify-between mt-4">
 							<p class="text-sm text-gray-600">모임장소: ${mmaker.moimPlace}</p>
 							<p class="text-sm text-gray-600">모임일시: ${mmaker.moimDatetime}</p>
+							<p class="text-sm text-gray-600">모임인원: ${mmaker.moimMemberCnt}</p>
 						</div>
 						<div class="flex justify-between mt-2">
 							<p class="text-sm text-gray-600">모임비: ${mmaker.moimPrice}</p>
 							<p class="text-sm text-gray-600">조회수: ${mmaker.hitCount}</p>
+							<%-- 
 							<tr>
 								<td><c:if test="${rq.getLoginedMemberId() == 0 }">
 										<span class="ml-2 badge">좋아요 : ${mmaker.goodReactionPoint }</span>
@@ -68,16 +68,12 @@
 										<span class="ml-2 badge">싫어요 :
 											${mmaker.badReactionPoint * -1 }</span>
 									</c:if></td>
-							</tr>			
+							</tr>			 --%>
 						</div>
 					</div>
 				</div>
 			</c:forEach>
 		</div>
-
-
-
-	</div>
 	</div>
 </section>
 <%@ include file="../common/footer.jsp"%>

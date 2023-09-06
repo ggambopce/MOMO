@@ -40,9 +40,9 @@ public class WebController {
 		return "usr/mmaker/lastmoim";
 	}
 	
-	@RequestMapping("/usr/scheduledmoim")
-	public String showScheduledMoim() {
-		return "usr/mmaker/scheduledmoim";
+	@RequestMapping("/usr/detail")
+	public String showDetail() {
+		return "usr/mmaker/detail";
 	}
 	
 }
