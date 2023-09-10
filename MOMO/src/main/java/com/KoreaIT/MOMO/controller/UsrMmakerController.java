@@ -10,10 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.KoreaIT.MOMO.service.MmakerService;
-import com.KoreaIT.MOMO.service.ReplyService;
 import com.KoreaIT.MOMO.util.Util;
 import com.KoreaIT.MOMO.vo.Mmaker;
-import com.KoreaIT.MOMO.vo.Reply;
 import com.KoreaIT.MOMO.vo.ResultData;
 import com.KoreaIT.MOMO.vo.Rq;
 
@@ -24,13 +22,11 @@ import jakarta.servlet.http.HttpServletResponse;
 public class UsrMmakerController {
 
 	private MmakerService mmakerService;
-	private ReplyService replyService;
 	private Rq rq;
 
 	@Autowired
-	public UsrMmakerController(MmakerService mmakerService, ReplyService replyService, Rq rq) {
+	public UsrMmakerController(MmakerService mmakerService, Rq rq) {
 		this.mmakerService = mmakerService;
-		this.replyService = replyService;
 		this.rq = rq;
 	}
 
@@ -90,19 +86,13 @@ public class UsrMmakerController {
 
 	@RequestMapping("/usr/Mmaker/detail")
 	public String showDetail(Model model, int id) {
-		System.out.println("호춯 detail");
-		System.out.println(id);
-		try {
+
 			Mmaker mmaker = mmakerService.getForPrintMmaker(id);
+			
 			mmakerService.actorCanChangeData(rq.getLoginedMemberId(), mmaker);
-			System.out.println(mmaker.toString());
+			
 			model.addAttribute("mmaker", mmaker);
-		}
-		catch(Exception e)
-		{
-			System.out.println(e);
-			System.out.println(e.getStackTrace());
-		}
+		
 		return "usr/mmaker/detail";
 		
 	}
@@ -154,6 +144,6 @@ public class UsrMmakerController {
 
 		mmakerService.deleteMmaker(id);
 
-		return Util.jsReplace(Util.f("%d번 게시물을 삭제했습니다", id), "scheduledMoim");
+		return Util.jsReplace(Util.f("%d번 게시물을 삭제했습니다", id), "lastMoim");
 	}
 }

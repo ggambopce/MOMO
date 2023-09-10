@@ -94,29 +94,13 @@
 										<div class="flex justify-between mt-2">
 											<p class="text-sm text-gray-600">모임비: ${mmaker.moimPrice}</p>
 											<p class="text-sm text-gray-600">조회수: ${mmaker.hitCount}</p>
-											<%-- 
-							<tr>
-								<td><c:if test="${rq.getLoginedMemberId() == 0 }">
-										<span class="ml-2 badge">좋아요 : ${mmaker.goodReactionPoint }</span>
-									<br />
-									<span class="ml-2 badge">싫어요 : ${mmaker.badReactionPoint * -1 }</span>
-									</c:if> <c:if test="${rq.getLoginedMemberId() != 0 }">
-										<a id="goodBtn" class="btn btn-outline btn-xs" href="../reactionPoint/doInsertReactionPoint?relId=${mmaker.id }&relTypeCode=article&point=1">좋아요👍</a>
-										<span class="ml-2 badge">좋아요 :
-											${mmaker.goodReactionPoint }</span>
-										<br />
-										<a id="badBtn" class="btn btn-outline btn-xs" href="../reactionPoint/doInsertReactionPoint?relId=${mmaker.id }&relTypeCode=article&point=-1">싫어요👎</a>
-										<span class="ml-2 badge">싫어요 :
-											${mmaker.badReactionPoint * -1 }</span>
-									</c:if></td>
-							</tr>			 --%>
+
 										</div>
 									</div>
 								</div>
 							</c:forEach>
 						</div>
 					</div>
-
 				</section>
 
 				<!-- Section -->
