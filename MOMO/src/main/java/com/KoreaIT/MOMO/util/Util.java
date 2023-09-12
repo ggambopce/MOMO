@@ -29,7 +29,7 @@ public class Util {
 						if (msg.length > 0) {
 							alert(msg);
 						}
-						history.back();
+						window.location.href = '../usr/main';
 					</script>
 					""", msg);
 	}

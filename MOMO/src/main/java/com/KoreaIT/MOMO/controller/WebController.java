@@ -35,6 +35,12 @@ public class WebController {
 		return "usr/mmaker/mmaker";
 	}
 	
+	@RequestMapping("/usr/domodify")
+	public String showDomodify() {
+		return "usr/mmaker/modify";
+	}
+	
+	
 	@RequestMapping("/usr/lastmoim")
 	public String showLastMoim() {
 		return "usr/mmaker/lastmoim";

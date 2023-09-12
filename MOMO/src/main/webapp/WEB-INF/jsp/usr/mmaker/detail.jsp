@@ -3,32 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="pageTitle" value="모임 디테일" />
 <%@ include file="../common/header.jsp"%>
-<script>
-		function getReactionPoint(){
-			
-			$.get('../reactionPoint/getReactionPoint', {
-				relId : ${mmaker.id},
-				relTypeCode : 'mmaker'
-			}, function(data) {
-				
-				if (data.data1.sumReactionPoint > 0) {
-					let goodBtn = $('#goodBtn');
-					goodBtn.removeClass('btn-outline');
-					goodBtn.attr('href', '../reactionPoint/doDeleteReactionPoint?relId=${mmaker.id }&relTypeCode=mmaker&point=1');
-				} else if (data.data1.sumReactionPoint < 0) {
-					let badBtn = $('#badBtn');
-					badBtn.removeClass('btn-outline');
-					badBtn.prop('href', '../reactionPoint/doDeleteReactionPoint?relId=${mmaker.id }&relTypeCode=mmaker&point=-1');
-				}
-				
-			}, 'json');
-			
-		}
-		
-		$(function() {
-			getReactionPoint();
-		})
-	</script>
 
 <section class="mt-8 text-xl">
 	<div class="container mx-auto px-3">

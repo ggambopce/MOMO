@@ -8,13 +8,13 @@
 		SET regDate = NOW(),
 		updateDate = NOW(),
 		memberId = #{memberId},
-		`moimmain` = #{moimMain},
-		`moimbody` = #{moimBody},
-		`moimimg` = #{moimImg},
-		`moimplace` = #{moimPlace},
-		`moimdatetime` = #{moimDatetime},
-		`moimmembercnt` = #{moimMemberCnt},
-		`moimprice` = #{moimPrice}
+		moimmain = #{moimMain},
+		moimbody = #{moimBody},
+		moimimg = #{moimImg},
+		moimplace = #{moimPlace},
+		moimdatetime = #{moimDatetime},
+		moimmembercnt = #{moimMemberCnt},
+		moimprice = #{moimPrice}
 	</insert>
 
 	<select id="getLastInsertId" resultType="int">
@@ -73,16 +73,16 @@
 				moimMain = #{moimMain},
 			</if>
 			<if test="moimBody != null and moimBody != ''">
-				`moimBody` = #{moimBody}
+				moimBody = #{moimBody},
 			</if>
 			<if test="moimImg != null and moimImg != ''">
-				`moimImg` = #{moimImg}
+				moimImg = #{moimImg},
 			</if>
 			<if test="moimPlace != null and moimPlace != ''">
-				`moimPlace` = #{moimPlace}
+				moimPlace = #{moimPlace},
 			</if>
 			<if test="moimPrice != null and moimPrice != ''">
-				`moimPrice` = #{moimPrice}
+				moimPrice = #{moimPrice}
 			</if>
 		</set>
 		WHERE id = #{id}

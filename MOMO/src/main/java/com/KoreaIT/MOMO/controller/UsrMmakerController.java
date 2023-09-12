@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.KoreaIT.MOMO.service.MmakerService;
@@ -14,9 +13,6 @@ import com.KoreaIT.MOMO.util.Util;
 import com.KoreaIT.MOMO.vo.Mmaker;
 import com.KoreaIT.MOMO.vo.ResultData;
 import com.KoreaIT.MOMO.vo.Rq;
-
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 
 @Controller
 public class UsrMmakerController {
@@ -110,7 +106,7 @@ public class UsrMmakerController {
 
 		model.addAttribute("mmaker", mmaker);
 
-		return "usr/Mmaker/modify";
+		return "usr/mmaker/modify";
 	}
 
 	@RequestMapping("/usr/Mmaker/doModify")
