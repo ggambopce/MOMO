@@ -1,8 +1,0 @@
-INDEX VERSION 1.4+/Users/gangjinho/Desktop/git_commit_MOMO/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
-884959388.index
-2784823169.index
-4236656663.index
-2886556916.index
-1528979880.index
-3092421466.index
-3042188145.index
