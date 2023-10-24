@@ -1,0 +1,23 @@
+package com.KoreaIT.MOMO.repository;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+
+import com.KoreaIT.MOMO.repository.ParticipationRepository;
+import com.KoreaIT.MOMO.vo.Participation;
+
+@Mapper
+public interface ParticipationRepository {
+
+	@Select("""
+			SELECT A.*, M.name AS writerName
+				FROM SB_AM.participation AS A
+				INNER JOIN SB_AM.member AS M
+				ON A.memberId = M.id OR A.memberId = 0
+			""")
+	public List<Participation> getParticipation();
+
+	}

@@ -1,0 +1,70 @@
+package com.KoreaIT.MOMO.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.KoreaIT.MOMO.repository.MemberRepository;
+import com.KoreaIT.MOMO.util.Util;
+import com.KoreaIT.MOMO.vo.Member;
+import com.KoreaIT.MOMO.vo.ResultData;
+
+@Service
+public class ParticipationService {
+
+	private MemberRepository memberRepository;
+
+	@Autowired
+	public ParticipationService(MemberRepository memberRepository) {
+		this.memberRepository = memberRepository;
+	}
+
+	public ResultData<Integer> doJoin(String loginId, String loginPw, String name, String nickname, String cellphoneNum, String gender, String birthday) {
+
+		Member existsMember = getMemberByLoginId(loginId);
+
+		if (existsMember != null) {
+			return ResultData.from("F-8", Util.f("이미 사용중인 아이디(%s) 입니다", loginId));
+		}
+		
+		existsMember = getMemberByNickname(nickname);
+
+		if (existsMember != null) {
+			return ResultData.from("F-9", Util.f("이미 사용중인 닉네임(%s) 입니다", nickname));
+		}
+		
+		existsMember = getMemberByNameAndCellphoneNum(name, cellphoneNum);
+
+		if (existsMember != null) {
+			return ResultData.from("F-10", Util.f("이미 사용중인 이름(%s)와 전화번호(%s)입니다", name, cellphoneNum));
+		}
+		
+		
+		memberRepository.doJoin(loginId, loginPw, name, nickname, gender, birthday, cellphoneNum);
+		
+		return ResultData.from("S-1", Util.f("%s회원님이 가입되었습니다", loginId), "id", memberRepository.getLastInsertId());
+	}
+
+	private Member getMemberByNameAndCellphoneNum(String name, String cellphoneNum) {
+		return memberRepository.getMemberByNameAndCellphoneNum(name, cellphoneNum);
+	}
+
+	private Member getMemberByNickname(String nickname) {
+		return memberRepository.getMemberByNickname(nickname);
+	}
+	
+	public Member getMemberByLoginId(String loginId) {
+		return memberRepository.getMemberByLoginId(loginId);
+	}
+
+	public Member getMemberById(int id) {
+		return memberRepository.getMemberById(id);
+	}
+	
+	public Member getMemberByGender(String gender) {
+		return memberRepository.getMemberByGender(gender);
+	}
+	
+	public Member getMemberByBirthday(String birthday) {
+		return memberRepository.getMemberByBirthday(birthday);
+	}
+}

@@ -1,0 +1,20 @@
+package com.KoreaIT.MOMO.repository;
+
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+
+import com.KoreaIT.MOMO.repository.ParticipationRepository;
+import com.KoreaIT.MOMO.vo.Participation;
+
+@Mapper
+public interface ParticipationRepository {
+
+	@Select("""
+			SELET *
+				FROM `participation`
+				WHERE id = #{id}
+			""")
+	public Participation getParticipation(int id);
+
+	}
