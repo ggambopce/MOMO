@@ -32,14 +32,14 @@ public class MmakerService {
 		return mmakerRepository.getMmakerById(id);
 	}
 	
-	public List<Mmaker> getMmakers(){
+	public List<Mmaker> getMmakers(String searchKeywordType, String searchKeyword){
 
-		return mmakerRepository.getMmakers();
+		return mmakerRepository.getMmakers(searchKeywordType, searchKeyword);
 	}
 	
-	public List<Mmaker> getMmakersL(String searchKeywordType, String searchKeyword){
+	public List<Mmaker> getMmakersL(){
 
-		return mmakerRepository.getMmakersL(searchKeywordType, searchKeyword);
+		return mmakerRepository.getMmakersL();
 	}
 
 	public List<Mmaker> getMmakersP(){

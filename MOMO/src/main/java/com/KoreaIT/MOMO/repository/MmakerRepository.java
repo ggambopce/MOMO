@@ -16,9 +16,9 @@ public interface MmakerRepository {
 
 	public Mmaker getMmakerById(int id);
 	
-	public List<Mmaker> getMmakers();
+	public List<Mmaker> getMmakers(String searchKeywordType, String searchKeyword);
 
-	public List<Mmaker> getMmakersL(String searchKeywordType, String searchKeyword);
+	public List<Mmaker> getMmakersL();
 	
 	public List<Mmaker> getMmakersP();
 	

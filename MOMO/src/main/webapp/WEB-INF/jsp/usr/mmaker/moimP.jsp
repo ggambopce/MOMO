@@ -20,7 +20,7 @@
 						<div class="flex-col mt-4">
 							<p class="text-sm text-gray-600">장&nbsp;&nbsp;&nbsp;소: ${mmaker.moimPlace}</p>
 							<p class="text-sm text-gray-600">일&nbsp;&nbsp;&nbsp;시: ${mmaker.moimDatetime}</p>
-						    <p class="text-sm text-gray-600">인&nbsp;&nbsp;&nbsp;원: ${mmaker.moimMemberCnt}</p>
+						    <p class="text-sm text-gray-600">인&nbsp;&nbsp;&nbsp;원: ${mmaker.moimMemberCnt}명</p>
 							<p class="text-sm text-gray-600">모임비: ${mmaker.moimPrice}원 </p>
 						</div>
 					</div>
@@ -29,6 +29,7 @@
 		</div>
 	</div>
 </section>
+
 
 
 

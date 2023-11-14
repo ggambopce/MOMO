@@ -7,7 +7,6 @@
 <section class="text-xl" style="margin-top: -20px;">
     <div class="container mx-auto px-3">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-0" style="margin-top: -30px;">
-            <!-- 파란색 영역 -->
             <div class="border rounded-lg overflow-hidden md:col-span-1" style="border: 4px solid #f56a6a;">
                 <img src="${mmaker.moimImg}" class="w-full h-40 object-cover" alt="Moim Image">
                 <div class="p-4">

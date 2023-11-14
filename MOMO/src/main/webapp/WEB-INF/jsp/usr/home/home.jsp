@@ -35,12 +35,16 @@
 
 				</header>
 				<!-- Search -->
-				<section id="searchKeyword" class="alt">
-					<form method="post" action="#">
-						<input type="text" name="searchKeyword" placeholder="검색어를 입력해주세요"
-							maxlength="20" />
-					</form>
-				</section>
+				<section id="search" class="alt">
+					<form>
+				 		<select class="ml-2 w-40 select select bordered" name="searchKeywodKType">
+				 			<option value= "moimMain">제목</option>
+				 			<option value= "writeName">모임장</option>	
+				 		</select>
+				 		<input class= "ml-2 w-auto input input-bordered" name= "searchKeyword" placeholder="검색어를 입력해주세요" maxlength= "20"/>
+				 		<button class= "ml-2 w-20 botton">검색</button>
+				 	</form>
+				</section> 	
 				<!-- Section -->
 				<section class="mt-8 text-xl" style="margin-top: -30px;">
 					<header class="major" style="margin-top: -50px;">
@@ -75,7 +79,6 @@
 						</div>
 					</div>
 				</section>
-
 			</div>
 		</div>
 
@@ -155,13 +158,14 @@
 		</div>
 
 	</div>
-
 	<!-- Scripts -->
 	<script src="/resources/assets/js/jquery.min.js"></script>
 	<script src="/resources/assets/js/browser.min.js"></script>
 	<script src="/resources/assets/js/breakpoints.min.js"></script>
 	<script src="/resources/assets/js/util.js"></script>
 	<script src="/resources/assets/js/main.js"></script>
+
+
 
 </body>
 </html>

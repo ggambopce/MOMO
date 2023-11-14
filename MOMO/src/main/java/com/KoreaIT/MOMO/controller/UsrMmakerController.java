@@ -74,9 +74,9 @@ public class UsrMmakerController {
 	}
 
 	@RequestMapping("/usr/home")
-	public String showMoim(Model model, @RequestParam(defaultValue = "title") String searchKeywordType, @RequestParam(defaultValue = " ") String searchKeyword ) {
+	public String showMoim(Model model, @RequestParam(defaultValue = "moimMain") String searchKeywordType, @RequestParam(defaultValue = "") String searchKeyword ) {
 
-		List<Mmaker> mmakers = mmakerService.getMmakers();
+		List<Mmaker> mmakers = mmakerService.getMmakers(searchKeywordType, searchKeyword);
 
 		model.addAttribute("mmakers", mmakers);
 
@@ -84,9 +84,9 @@ public class UsrMmakerController {
 	}
 	
 	@RequestMapping("/usr/Mmaker/moimL")
-	public String showMoimL(Model model, @RequestParam(defaultValue = "title") String searchKeywordType, @RequestParam(defaultValue = " ") String searchKeyword ) {
+	public String showMoimL(Model model) {
 
-		List<Mmaker> mmakers = mmakerService.getMmakersL(searchKeywordType, searchKeyword);
+		List<Mmaker> mmakers = mmakerService.getMmakersL();
 
 		model.addAttribute("mmakers", mmakers);
 
@@ -165,6 +165,6 @@ public class UsrMmakerController {
 
 		mmakerService.deleteMmaker(id);
 
-		return Util.jsReplace(Util.f("%d번 게시물을 삭제했습니다", id), "lastMoim");
+		return Util.jsReplace(Util.f("%d번 게시물을 삭제했습니다", id), "../usr/home");
 	}
 }

@@ -23,7 +23,6 @@
     <fullyQualifiedTypeName name="com.KoreaIT.MOMO.vo.Board"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
     <fullyQualifiedTypeName name="org.springframework.context.annotation.Scope"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
     <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Mapper"/>
     <fullyQualifiedTypeName name="com.KoreaIT.MOMO.repository.ReactionPointRepository"/>
     <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Insert"/>
@@ -45,6 +44,7 @@
     <fullyQualifiedTypeName name="jakarta.servlet.http.HttpServletRequest"/>
     <fullyQualifiedTypeName name="jakarta.servlet.http.HttpServletResponse"/>
     <fullyQualifiedTypeName name="com.KoreaIT.MOMO.repository.ParticipationRepository"/>
-    <fullyQualifiedTypeName name="com.KoreaIT.MOMO.vo.Participation"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
+    <fullyQualifiedTypeName name="com.KoreaIT.MOMO.vo.Participation"/>
 </qualifiedTypeNameHistroy>
