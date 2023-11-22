@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.KoreaIT.MOMO.repository.ParticipationRepository;
 import com.KoreaIT.MOMO.service.MmakerService;
 import com.KoreaIT.MOMO.util.Util;
 import com.KoreaIT.MOMO.vo.Mmaker;
@@ -28,7 +29,6 @@ public class UsrMmakerController {
 		this.mmakerService = mmakerService;
 		this.rq = rq;
 	}
-
 	@RequestMapping("/usr/Mmaker/write")
 	public String write() {
 		return "usr/Mmaker/write";
@@ -113,11 +113,12 @@ public class UsrMmakerController {
 			
 			model.addAttribute("mmaker", mmaker);
 			
-		
 		return "usr/mmaker/detail";
 		
 	}
+	
 
+	
 	@RequestMapping("/usr/Mmaker/modify")
 	public String modify(Model model, int id) {
 

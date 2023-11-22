@@ -14,32 +14,41 @@ import com.KoreaIT.MOMO.vo.Participation;
 public interface ParticipationRepository {
 
 	@Select("""
-			With AM AS (
-			SELECT A.*, M.name AS writerName
-				FROM SB_AM.mmaker AS A
-				INNER JOIN SB_AM.member AS M
-				ON A.memberId = M.id OR A.memberId = 0
-			)
-			SELECT AM.*
-	        	FROM AM
-            	LEFT JOIN SB_AM.participation AS PP
-            	ON PP.relTypeCode = 'participaion'
-            	AND PP.relId = AM.id
-
-			    GROUP BY AM.id
-			    ORDER BY AM.id DESC
+		SELECT P.*, M.name AS writerName
+			FROM SB_AM.participation AS A
+			INNER JOIN SB_AM.member AS M
+			ON P.memberId = M.id OR P.memberId = 0
+			ORDER BY id DESC
+			
 			""")
 	public List<Participation> getParticipations();
 	
 
 	@Select("""
-			SELECT A.*, M.name AS writerName
-				FROM SB_AM.mmaker AS A
-				INNER JOIN SB_AM.member AS M
-				ON A.memberId = M.id OR A.memberId = 0
+		SELECT A.*, M.name AS writerName 
+			FROM SB_AM.mmaker AS A
+			INNER JOIN SB_AM.member AS M
+			ON A.memberId = M.id
+			WHERE A.id = #{id}	
 				
 			""")
 	public Participation getForPrintParticipation(int id);
 
+
+	@Select("""
+		INSERT INTO 'participation'
+		SET regDate = NOW(),
+		updateDate = NOW(),
+		memberId = #{memberId},	
+		relTypeCode = #{relTypeCode},
+		relId = #{relId},
+		participationStatus = #{participationStatus},
+		participationTF = #{participationTF}	
+			"""
+			)
+	public void doParticipation(int memberId, String relTypeCode, int relId, String participationStatus,
+			String participationTF);
+
+	
 }
 

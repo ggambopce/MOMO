@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.KoreaIT.MOMO.service.ParticipationService;
+import com.KoreaIT.MOMO.util.Util;
 import com.KoreaIT.MOMO.vo.Mmaker;
 import com.KoreaIT.MOMO.vo.Participation;
 import com.KoreaIT.MOMO.vo.Rq;
@@ -35,6 +36,17 @@ public class UsrParticipationController {
 		return "usr/mmaker/participation";
 	}
 	
+	@RequestMapping("/usr/Mmaker/doParticipation")
+	@ResponseBody
+	public String doParticipation(int memberId, String relTypeCode, int relId, String participationStatus, String participationTF ) {
+	
+		participationService.doParticipation(memberId, relTypeCode, relId, participationStatus, participationTF);
+		
+		int id = participationService.getLastInsertId();
+
+		return Util.jsReplace(Util.f("참여신청", id), Util.f("../home"));
+		
+	}
 	
 	
 }

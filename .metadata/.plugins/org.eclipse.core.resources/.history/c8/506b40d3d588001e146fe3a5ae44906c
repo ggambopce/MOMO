@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.KoreaIT.MOMO.repository.ParticipationRepository;
 import com.KoreaIT.MOMO.service.MmakerService;
 import com.KoreaIT.MOMO.util.Util;
 import com.KoreaIT.MOMO.vo.Mmaker;
@@ -74,9 +75,9 @@ public class UsrMmakerController {
 	}
 
 	@RequestMapping("/usr/home")
-	public String showMoim(Model model, @RequestParam(defaultValue = "title") String searchKeywordType, @RequestParam(defaultValue = " ") String searchKeyword ) {
+	public String showMoim(Model model, @RequestParam(defaultValue = "moimMain") String searchKeywordType, @RequestParam(defaultValue = "") String searchKeyword ) {
 
-		List<Mmaker> mmakers = mmakerService.getMmakers();
+		List<Mmaker> mmakers = mmakerService.getMmakers(searchKeywordType, searchKeyword);
 
 		model.addAttribute("mmakers", mmakers);
 
@@ -113,11 +114,26 @@ public class UsrMmakerController {
 			
 			model.addAttribute("mmaker", mmaker);
 			
+		return "usr/mmaker/detail";
+		
+	}
+
+	@RequestMapping("/usr/Mmaker/participation")
+	@ResponseBody
+	public String showParticipation(Model model, int id) {
+
+		Participation participation = participationService.getForPrintParticipation(id);
+			
+		participationService.actorCanChangeData(rq.getLoginedMemberId(), participation);
+			
+			model.addAttribute("participation", participation);
+			
 		
 		return "usr/mmaker/detail";
 		
 	}
 
+	
 	@RequestMapping("/usr/Mmaker/modify")
 	public String modify(Model model, int id) {
 
