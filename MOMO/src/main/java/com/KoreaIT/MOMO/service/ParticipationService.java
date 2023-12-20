@@ -31,4 +31,8 @@ public class ParticipationService {
 
 		return participation;
 	}
+
+	public int getLastInsertId() {
+		return participationRepository.getLastInsertId();
+	}
 }

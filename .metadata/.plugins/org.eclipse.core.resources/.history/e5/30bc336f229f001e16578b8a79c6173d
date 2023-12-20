@@ -5,25 +5,6 @@
 <%@ include file="../common/header.jsp"%>
 
 
-<script>
-
-	const params = {};
-	params.id = parseInt('${param.id}');
-	
-	function MmakerDetail_doParticipation() {
-		$.get('../Mmaker/doParticipation', {
-			id : params.id
-		}, function(data){
-			
-			$('#').empty().html(data.data1);
-			
-		}, 'json')			
-	}
-	
-	MmakerDetail_doParticipation();
-</script>
-
-
 <section class="text-xl" style="margin-top: -20px;">
     <div class="container mx-auto px-3">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-0" style="margin-top: -30px;">

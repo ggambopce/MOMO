@@ -8,7 +8,7 @@
 <script>
 
 	const params = {};
-	params.id = parseInt('${param.id}');
+	params.id = parsInt('${param.id}');
 	
 	function MmakerDetail_doParticipation() {
 		$.get('../Mmaker/doParticipation', {

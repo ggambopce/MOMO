@@ -13,6 +13,7 @@ import com.KoreaIT.MOMO.service.ParticipationService;
 import com.KoreaIT.MOMO.util.Util;
 import com.KoreaIT.MOMO.vo.Mmaker;
 import com.KoreaIT.MOMO.vo.Participation;
+import com.KoreaIT.MOMO.vo.ResultData;
 import com.KoreaIT.MOMO.vo.Rq;
 
 public class UsrParticipationController {
@@ -47,7 +48,24 @@ public class UsrParticipationController {
 		return Util.jsReplace(Util.f("참여신청", id), Util.f("../home"));
 		
 	}
-	
+	/* 참여취소기능 
+	@RequestMapping("/usr/Mmaker/participationCancle")
+	@ResponseBody
+	public String doCancle(int id) {
+
+		Participation participation = participationService.getParticipationById(id);
+
+		ResultData actorCanModifyRd = participationService.actorCanMD(rq.getLoginedMemberId(), participation);
+
+		if (actorCanModifyRd.isFail()) {
+			return Util.jsHistoryBack(actorCanModifyRd.getMsg());
+		}
+
+		participationService.cancleParticipation(id);
+
+		return Util.jsReplace(Util.f("%d번 게시물을 삭제했습니다", id), "../usr/home");
+	}
+	*/
 	
 }
 

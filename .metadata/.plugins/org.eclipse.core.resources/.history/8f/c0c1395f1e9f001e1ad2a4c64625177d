@@ -4,25 +4,10 @@
 <c:set var="pageTitle" value="모임 디테일" />
 <%@ include file="../common/header.jsp"%>
 
-
 <script>
 
-	const params = {};
-	params.id = parseInt('${param.id}');
-	
-	function MmakerDetail_doParticipation() {
-		$.get('../Mmaker/doParticipation', {
-			id : params.id
-		}, function(data){
-			
-			$('#').empty().html(data.data1);
-			
-		}, 'json')			
-	}
-	
-	MmakerDetail_doParticipation();
-</script>
 
+ </script>	
 
 <section class="text-xl" style="margin-top: -20px;">
     <div class="container mx-auto px-3">

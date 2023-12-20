@@ -29,7 +29,6 @@ ALTER TABLE mmaker MODIFY COLUMN moimimg BLOB COMMENT '모임사진';
 DESC mmaker;
 show columns from `mmaker`;
 
-
 SELECT*FROM `member`;
 SELECT*FROM `mmaker`;
 SELECT*FROM board;
@@ -242,7 +241,7 @@ SELECT * FROM board;
 SELECT * FROM reactionPoint;
 SELECT * FROM reply;
 SELECT * FROM participation
-
+ 
 
 SELECT LAST_INSERT_ID();
 
@@ -256,3 +255,39 @@ from article;
 */
 
 SELECT COUNT(*) FROM article;
+
+
+
+#서브쿼리 버전
+SELECT COUNT(*) FROM mmaker;
+
+SELECT AM.*
+FROM (
+	SELECT A.*, M.name AS writerName
+		FROM SB_AM.mmaker AS A
+		INNER JOIN SB_AM.member AS M
+		ON A.memberId = M.id OR A.memberId = 0
+) AS AM
+ LEFT JOIN participation AS PP
+ ON PP.relTypeCode = 'mmaker'
+ AND PP.relId = AM.id
+ GROUP BY AM.id
+
+#디테일에 참여데이터  
+SELECT P.*
+				FROM SB_AM.participation AS P
+				INNER JOIN SB_AM.mmaker AS MM
+				ON P.relId = MM.id
+#디중조인 버전
+SELECT A.*
+	, M.name AS writerName
+	FROM SB_AM.mmaker AS A
+	INNER JOIN SB_AM.member AS M
+	ON A.memberId = M.id
+	LEFT JOIN participation AS P
+	ON P.relId = 'mmaker'
+	GROUP BY A.id
+		
+				
+				
+				

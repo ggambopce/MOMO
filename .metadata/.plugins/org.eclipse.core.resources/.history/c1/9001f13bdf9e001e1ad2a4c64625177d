@@ -28,12 +28,12 @@ public interface ParticipationRepository {
 	@Select("""
 		INSERT INTO 'participation'
 		SET regDate = NOW(),
-			updateDate = NOW(),
-			memberId = #{memberId},	
-			relTypeCode = #{relTypeCode},
-			relId = #{relId},
-			participationStatus = #{participationStatus},
-			participationTF = #{participationTF}	
+		updateDate = NOW(),
+		memberId = #{memberId},	
+		relTypeCode = #{relTypeCode},
+		relId = #{relId},
+		participationStatus = #{participationStatus},
+		participationTF = #{participationTF}	
 			"""
 			)
 	public void doParticipation(int memberId, String relTypeCode, int relId, String participationStatus,
