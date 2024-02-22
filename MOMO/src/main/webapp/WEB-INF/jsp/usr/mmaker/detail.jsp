@@ -7,6 +7,7 @@
 
 <script>
 
+	/*
 	const params = {};
 	params.id = parseInt('${param.id}');
 	
@@ -21,6 +22,45 @@
 	}
 	
 	MmakerDetail_doParticipation();
+	*/
+	
+	// jQuery를 사용하여 클릭 이벤트 처리	
+	$(function() {
+		 console.log("Ready!");
+		    // #myLink 요소를 클릭했을 때의 이벤트 핸들러
+		    $("#idParticipationAdd").click(function(event) {
+		        // 클릭 이벤트 발생 시의 동작
+		        console.log("Link clicked!");
+		        
+		        var postData = {
+		        	    "id": 999999,
+		        	    "regDate": null,
+		        	    "updateDate": null,
+		        	    "memberId": null,
+		        	    "relTypeCode": null,
+		        	    "relId": 0,
+		        	    "participationStatus": null,
+		        	    "participationTF": null
+		        	    };
+		        
+		        $.ajax({
+		            url: "/api/post",
+		            type: "POST",
+		            contentType: "application/json",
+		            data: JSON.stringify(postData),
+		            success: function(response) {
+		                // 성공적으로 응답 받았을 때의 처리
+		                console.log("Response:", response);
+		            },
+		            error: function(xhr, status, error) {
+		                // 요청이 실패했을 때의 처리
+		                console.error("Request failed with status", status, error);
+		            }
+		        });
+		        
+		        event.preventDefault();
+		    });
+		});
 </script>
 
 
@@ -49,7 +89,7 @@
                             </c:when>
                             <c:otherwise>
                                 <!-- "참여신청" 및 "참여취소" 버튼 -->
-                                <a class="btn-text-link btn btn-active btn-ghost" href="doParticipation?id=${mmaker.id}">참여신청</a>
+                                <a class="btn-text-link btn btn-active btn-ghost" id="idParticipationAdd">참여신청</a>
                                 <a class="btn-text-link btn btn-active btn-ghost" href="participationcancle?id=${mmaker.id}">참여취소</a>
                             </c:otherwise>
                         </c:choose>
@@ -68,11 +108,11 @@
                             <th>참여상태</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="ajaxParticipation">
                         <tr>
-                            <td>${participation.id}</td>
-                            <td>${participation.memberId}</td>
-                            <td>${participation.participationStatus}</td>
+                            <td>${participation.id}1</td>
+                            <td>${participation.memberId}이재용</td>
+                            <td>${participation.participationStatus}참여</td>
                         </tr>
                     </tbody>
                 </table>
