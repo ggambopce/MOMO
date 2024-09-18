@@ -21,7 +21,7 @@
 - **제목, 모임장 조건검색:** 동적쿼리를 사용하여 상황에 따른 검색 구현
  
 ## 🔧 기술 스택
-<h3 align="center"> 개발 / 테스트 </h3>
+<h3 align="center"> 개발 </h3>
 
 <p align="center">
 <img src="https://img.shields.io/badge/Java 17-008FC7?style=flat-square&logo=Java&logoColor=white"/></img>
@@ -42,7 +42,7 @@
 </p>
 
 
-<h3 align="center"> 문서 / 협업 / 툴</h3>
+<h3 align="center"> 문서 / 툴</h3>
 
 <p align="center">
 <img src="https://img.shields.io/badge/Notion-000000?style=flat-square&logo=Notion&logoColor=white"/>
