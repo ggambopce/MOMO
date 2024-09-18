@@ -28,6 +28,7 @@
 <img src="https://img.shields.io/badge/Gradle-02303A?style=flat-square&logo=Gradle&logoColor=white"/></img>
 <img src="https://img.shields.io/badge/Spring-58CC02?style=flat-square&logo=Spring&logoColor=white"/></img>
 <img src="https://img.shields.io/badge/Spring Boot 2.7.18-6DB33F?style=flat-square&logo=Spring Boot&logoColor=white"/></img>
+<img src="https://img.shields.io/badge/Mybatis-008FC2?style=flat-square&logo=Java&logoColor=white"/></img>
 </p>
 
 <p align="center">
