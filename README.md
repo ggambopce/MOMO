@@ -52,6 +52,7 @@
 <img src="https://img.shields.io/badge/Gather-0043CE.svg?style=flat-square&logo=Gather&logoColor=white"/>
 
 </p>
+
 ## 🎯 이슈
 > - [쿼리다중 생성문제]()<br>
 > - [정적리소스에 이미지파일저장문제]()<br>
